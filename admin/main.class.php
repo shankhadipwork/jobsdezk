@@ -105,8 +105,57 @@ class main
 		$sql=$this->db->query("SELECT `id`, `company_name` FROM `compnay` ");
 		return $sql->fetchAll();
 	}
+	public function findAllCompnay()
+	{
+		$sql=$this->db->query("SELECT * FROM `compnay` ");
+		return $sql->fetchAll();
+	}
+	public function findAllJobsOpeningCountByCompany($companyId)
+	{
+		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `company_id`='".$companyId."' ");
+		return $sql->rowCount($sql); ;
+	}
+	function speciCompanyDetails($id)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `compnay` WHERE `id`=$id");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
 
 	//Function End For Company 
+	//Function Start For Jobs 
+
+	public function findAllJobs()
+	{
+		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `status`='1' ");
+		return $sql->fetchAll();
+	}
+	//Function End For Jobs
+	//Function Start For City
+	function specificCityDetails($id)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `city` WHERE `id`=$id");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+	//Function End For City
+	//Function Start For Jobs 
+
+	public function findAllSupperRecruiter()
+	{
+		$sql=$this->db->query("SELECT * FROM `supper_recruiter`  ");
+		return $sql->fetchAll();
+	}
+	//Function End For Jobs
+	//Function Start For Candidates info
+
+	public function findAllCandidatesInfo()
+	{
+		$sql=$this->db->query("SELECT * FROM `candidates_info`  ");
+		return $sql->fetchAll();
+	}
+
+	//Function End For Candidates info
 	
 
 }	

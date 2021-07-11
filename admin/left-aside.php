@@ -1,3 +1,4 @@
+<?php include_once("main.class.php"); ?>
 <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open">
       <div class="mdc-drawer__header">
         <a href="dashboard" class="brand-logo">
@@ -20,15 +21,10 @@
                 <i class="mdc-drawer-arrow material-icons">chevron_right</i>
               </a>
               <div class="mdc-expansion-panel" id="ui-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
+                <nav class="mdc-list mdc-drawer-submenu">                  
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/ui-features/buttons.html">
-                      Manage Company
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="create-new-company">
-                      Add New Company
+                    <a class="mdc-drawer-link" href="add-company">
+                      Companies Listing
                     </a>
                   </div>
                 </nav>
@@ -43,13 +39,8 @@
               <div class="mdc-expansion-panel" id="sample-page-submenu">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/samples/blank-page.html">
+                    <a class="mdc-drawer-link" href="job-listing">
                       Job List
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="create-new-super-recruiter">
-                      Add New Job
                     </a>
                   </div>
                 </nav>
@@ -64,12 +55,12 @@
                 <div class="mdc-expansion-panel" id="sample-page-submenu1">
                   <nav class="mdc-list mdc-drawer-submenu">
                     <div class="mdc-list-item mdc-drawer-item">
-                      <a class="mdc-drawer-link" href="pages/samples/blank-page.html">
+                      <a class="mdc-drawer-link" href="recruiter-list">
                         Recruiters List
                       </a>
                     </div>
                     <div class="mdc-list-item mdc-drawer-item">
-                      <a class="mdc-drawer-link" href="create-new-super-recruiter">
+                      <a class="mdc-drawer-link" href="add-recruiter">
                         Add New Recruiter
                       </a>
                     </div>
@@ -77,26 +68,21 @@
                 </div>
               </div>
               <div class="mdc-list-item mdc-drawer-item">
-                <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="sample-page-submenu">
-                  <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
-                  Candidates
-                  <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-                </a>
-                <div class="mdc-expansion-panel" id="sample-page-submenu">
-                  <nav class="mdc-list mdc-drawer-submenu">
-                    <div class="mdc-list-item mdc-drawer-item">
-                      <a class="mdc-drawer-link" href="pages/samples/blank-page.html">
-                        Candidates List
-                      </a>
-                    </div>
-                    <div class="mdc-list-item mdc-drawer-item">
-                      <a class="mdc-drawer-link" href="pages/samples/403.html">
-                        Applied Jobs
-                      </a>
-                    </div>
-                  </nav>
+                  <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="candidate-submenu">
+                    <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
+                    Candidates
+                    <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+                  </a>
+                  <div class="mdc-expansion-panel" id="candidate-submenu">
+                    <nav class="mdc-list mdc-drawer-submenu">
+                      <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="candidates-listing">
+                          Candidates List
+                        </a>
+                      </div>
+                    </nav>
+                  </div>
                 </div>
-              </div>
 
           </nav>
         </div>

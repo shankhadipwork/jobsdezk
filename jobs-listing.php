@@ -68,43 +68,62 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            
+
                             <div class="cc-wrapper">
+                            <?php foreach($objectvtv->findAllUrgentOpenings() as $uOD) {    
+                                    $specificCompanyDetails = $objectvtv->speciCompanyDetails($uOD['company_id']);
+                                    $locations = explode(',',$uOD['locations']) ;
+                                    $tmpLocationStor = '';
+                                    foreach($locations as $locatinId){
+                                        $getSpecificlocationsDtls = $objectvtv->specificCityDetails($locatinId);
+                                        $tmpLocationStor .= $getSpecificlocationsDtls['name'].', '; 
+
+                                    }
+                                    $hour = abs(time() - $uOD['created_at'])/(60*60);
+                                    if($uOD['job_type'] == 1) {
+                                        $jobType = 'Full-Time';
+                                    }
+                                    elseif($uOD['job_type'] == 2) {
+                                        $jobType = 'Part-Time';
+                                    }
+                                    elseif($uOD['job_type'] == 3) {
+                                        $jobType = 'Internship';
+                                    }
+                                ?>
                                 <div class="cc-block">
                                     <div class="cc-logo">
-                                        <img src="images/company-logo.png" alt="">
+                                        <img src="images/<?= $specificCompanyDetails['logo']?>" alt="">
                                     </div>
                                     <div class="cc-details">
-                                        <div class="j-title">Software Developer Cloud IAAS Engineering</div>
-                                        <div class="cc-name">Accenture</div>
+                                        <div class="j-title"><?= $uOD['title']?></div>
+                                        <div class="cc-name"><?= $specificCompanyDetails['company_name']?></div>
                                         <div class="f-details-wrapper">
                                             <div class="f-details">
                                                 <div class="f-icon">
                                                     <i class="fa fa-briefcase" aria-hidden="true"></i>
                                                 </div>
-                                                <div class="f-title">5-10 Years</div>
+                                                <div class="f-title"><?= $uOD['experience_needed']?>  Years</div>
                                             </div>
                                             <div class="f-details">
                                                 <div class="f-icon">
                                                     <i class="fa fa-money-bill-alt" aria-hidden="true"></i>
                                                 </div>
-                                                <div class="f-title">10,00,000-15,00,00 PA</div>
+                                                <div class="f-title"><?= $uOD['salary']?> PA</div>
                                             </div>
                                             <div class="f-details">
                                                 <div class="f-icon">
                                                     <i class="fa fa-map-marked-alt" aria-hidden="true"></i>
                                                 </div>
-                                                <div class="f-title">Bangalore, Chennai, Pune</div>
+                                                <div class="f-title"><?= $tmpLocationStor?></div>
                                             </div>
                                         </div>
                                         <div class="skils-wrapper">
-                                            <div class="skill">Java</div>
-                                            <div class="skill">Software developer</div>
-                                            <div class="skill">Cloud Computing</div>
-                                            <div class="skill">Networking</div>
-                                            <div class="skill">C++</div>
-                                            <div class="skill">J2</div>
-                                            <div class="skill">Python</div>
+                                        <?php 
+                                        $skills = explode(',',$uOD['skills_needed']) ;
+                                        foreach($skills as $skillsDtls){
+                                        $getSpecificskillsDtls = $objectvtv->specificSkillDetails($skillsDtls); ?>
+                                        <div class="skill"><?= $getSpecificskillsDtls['name']?></div>
+                                        <?php } ?>  
                                         </div>
                                     </div>
                                     <div class="cc-posted">
@@ -114,17 +133,17 @@
                                             </a>
                                         </div>
                                         <div class="a-no type-1 cl-grey">
-                                            <a href="">View</a>
+                                            <a href="job-details?jid=<?= base64_encode($uOD['id']) ?>">View</a>
                                         </div>
                                         <div class="a-no type-1 cl-orange">
                                             <a href="">Save</a>
                                         </div>
                                         <div class="posted-on">
-                                            Posted on 27th Jan 2021
+                                            Posted on <?= DATE('d M Y',$uOD['created_at']);?>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <?php }  ?> 
                             </div>
                         </div>
                         <div class="col-lg-12">
