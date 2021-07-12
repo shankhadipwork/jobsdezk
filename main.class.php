@@ -119,6 +119,11 @@ class main
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
+	public function findAllInternShipOpenings()
+	{
+		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `job_type`='3' AND `status`='1' ");
+		return $sql->fetchAll();
+	}
 	//Function Start For City
 	public function findAllActiveCity()
 	{
@@ -140,6 +145,15 @@ class main
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
 	//Function End For Skills
+	// Function Start For Sliding Banner
+	function specificSlidingBanner()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `sliding_banner` LIMIT 1");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+
+	// Function End For Sliding Banner
 
 }	
 

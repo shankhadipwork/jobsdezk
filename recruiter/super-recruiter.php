@@ -105,7 +105,7 @@
                      <form method="post" enctype="multipart/form-data">
                     <div class="steps-form form-d">
                         <div class="form-group">
-                            <label for="">About {Company}</label>
+                            <label for="">About <?= $specificCompanyDtls['company_name'];?></label>
                             <textarea name="about" id="" class="form-control" rows="6"><?= $specificCompanyDtls['about']?></textarea>
                         </div>
                         <div class="row  mt-40">

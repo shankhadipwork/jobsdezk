@@ -106,22 +106,22 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="sliding-banner">
+                                        <?php $findAllBanner = $objectvtv->specificSlidingBanner(); ?>
                                         <div class="owl-carousel banner-carousel">
+                                            <?php if($findAllBanner['image1'] != '' ) {?>
                                             <div class="item">
-                                                <a href="job-details.html">
-                                                    Sliding banner A                                    
-                                                </a>
+                                                <img src = "images/sliding_banner/<?=$findAllBanner['image1']?>" />
                                             </div>
+                                            <?php } if($findAllBanner['image2'] != '' ) {?>
+
                                             <div class="item">
-                                                <a href="job-details.html">
-                                                    Sliding banner B   
-                                                </a>
+                                                <img src = "images/sliding_banner/<?=$findAllBanner['image2']?>" />
                                             </div>
+                                            <?php } if($findAllBanner['image3'] != '' ) {?>
                                             <div class="item">
-                                                <a href="job-details.html">
-                                                    Sliding banner C  
-                                                </a> 
+                                                <img src = "images/sliding_banner/<?=$findAllBanner['image3']?>" />
                                             </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>

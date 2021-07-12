@@ -24,7 +24,7 @@
 								<a class="nav-link" href="company-listing">Company</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Internship</a>
+								<a class="nav-link" href="internship-listing">Internship</a>
 							</li>
 							<li class="nav-item d-none d-sm-block">
 								<a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#exampleModal">
