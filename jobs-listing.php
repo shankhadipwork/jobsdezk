@@ -15,7 +15,7 @@
 	</head>
 	<body>
     <?php include_once("header.php");    ?>
-		<div class="content-wrapper type-2">
+		<div class="content-wrapper type-2 bg-dots">
             <div class="filter-menu">
                 <div class="container">
                     <div class="f-menu">
