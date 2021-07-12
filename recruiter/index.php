@@ -22,11 +22,14 @@ $msg=$objectjdsr->superRecuiterLogin();
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper rec-login">
+        <div class="brand-logo">
+            <img src="../images/logo-new.png" alt="">
+        </div>
         <div class="steps-form type-2">
         <form action="" method="post">
-            <div class="row">
-                <div class="col-lg-4 mx-auto">
+            <div class="">
+                <div class="">
                     <div class="title-r">
                         <h1>Super Recruiter Login</h1>
                         <h1><?= isset($msg)? $msg:'' ?></h1>

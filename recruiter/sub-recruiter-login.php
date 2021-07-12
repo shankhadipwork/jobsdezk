@@ -22,44 +22,48 @@ $msg=$objectjdsr->subRecuiterLogin();
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper rec-login">
+        <div class="brand-logo">
+            <img src="../images/logo-new.png" alt="">
+        </div>
         <div class="steps-form type-2">
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-lg-4 mx-auto">
-                    <div class="title-r">
-                        <h1>Sub Recruiter Login</h1>
-                        <h1><?= isset($msg)? $msg:'' ?></h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="">Email</label>
-                                <input type="email"  name="user_email" required="required" class="form-control" placeholder="Complany Email">
+          
+            <form action="" method="post">
+                <div class="">
+                    <div class="">
+                        <div class="title-r">
+                            <h1>Sub Recruiter Login</h1>
+                            <h1><?= isset($msg)? $msg:'' ?></h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="email"  name="user_email" required="required" class="form-control" placeholder="Complany Email">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="">Password</label>
-                                <input type="password"  name="password" required="required" class="form-control" placeholder="Password">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password"  name="password" required="required" class="form-control" placeholder="Password">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="mx-auto">
-                            <input type="submit" name="login_sub_recruiter" class="btn-custom btn-save" value="Submit">
-                        </div>                               
-                    </div>
-                    <div class="row">    
-                        <div class="mx-auto terms-link">
-                            Are you a "Super Recruiter"? Please <a href="index">Login</a> here.
-                        </div>                                
-                    </div>
-                </div>                              
-            </div>
-        </form>
+                        <div class="row">
+                            <div class="mx-auto">
+                                <input type="submit" name="login_sub_recruiter" class="btn-custom btn-save" value="Submit">
+                            </div>                               
+                        </div>
+                        <div class="row">    
+                            <div class="mx-auto terms-link">
+                                Are you a "Super Recruiter"? Please <a href="index">Login</a> here.
+                            </div>                                
+                        </div>
+                    </div>                              
+                </div>
+            </form>
         </div>
     </div>
 </body>

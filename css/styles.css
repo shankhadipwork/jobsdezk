@@ -3037,6 +3037,8 @@ justify-content: center;
   }
   .steps-form .btn-custom.btn-save{
     background: #0e76a9;
+    border:0;
+    outline: 0;
 }
 
 .steps-form .custom-btns .btn-custom{
@@ -3970,9 +3972,52 @@ p {
     display: none !important;
 }
 
+
+/* Recruiter Login */
+/* -------------------------- */
+.rec-login {
+    padding-top: 0;
+    min-height: 100vh;
+    background: #e9eaef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.rec-login .brand-logo {
+    margin-bottom: 20px;
+}
+.rec-login .steps-form {
+    width: 400px;
+    background: #fff;
+    padding: 32px 28px;
+    -webkit-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 9%);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 9%);
+    border-radius: 2px;
+}
+
+.rec-login .title-r {
+    margin: 0;
+}
+
+.rec-login .steps-form h1{
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 0;
+    margin-bottom: 16px;
+    color: #0e76a9;
+}
+.rec-login .steps-form label, .rec-login .steps-form .terms-link {
+    color: #333;
+}
+
 /* Media Queries */
 /* ======================== */
 @media(max-width:1000px){
+    .rec-login .steps-form {
+        width: 90%;
+        max-width: 400px;
+    }
     .jp_header_form_wrapper {
         padding-top: 0;
     }
@@ -4035,5 +4080,16 @@ p {
     }
     .cc-wrapper .j-title {
         margin-top: 10px;
+    }
+    
+    .steps, .cards-wrapper {
+        overflow-x: scroll;
+    }
+    .skill-block {
+        margin: 30px 0;
+    }
+    .slider.slider-horizontal .tooltip {
+        right: -67px;
+        top: -4px;
     }
 }

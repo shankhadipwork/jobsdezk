@@ -111,13 +111,31 @@ if(isset($_POST['create_social_media_links'])){
                                                <input type="hidden" value="Linkedin" name="social_media"  class="form-control">
                                                 <input type="text" value="<?php echo $socialLink['social_link']; ?>" name="social_link" class="form-control" required>
                                             </div>
-                                        </div>                                        
-                                    </div>
-                                    <div class="">
-                                        <div class="col-lg-12 text-right" style="margin-top: 16px;">
-                                            <a href="">+ Add Employer</a>
+                                        </div>   
+                                        <div class="row mt-10">
+                                            <div class="col-lg-2">
+                                                <label for="">Facebook</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                               <input type="hidden" value="Linkedin" name="social_media"  class="form-control">
+                                                <input type="text" value="<?php echo $socialLink['social_link']; ?>" name="social_link" class="form-control" required>
+                                            </div>
                                         </div>
+                                        <div class="row mt-10">
+                                            <div class="col-lg-2">
+                                                <label for="">Twitter</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                               <input type="hidden" value="Linkedin" name="social_media"  class="form-control">
+                                                <input type="text" value="<?php echo $socialLink['social_link']; ?>" name="social_link" class="form-control" required>
+                                            </div>
+                                        </div>                                     
                                     </div>
+                                    <!-- <div class="">
+                                        <div class="col-lg-12 text-right" style="margin-top: 16px;">
+                                            <a href="">+ Add Social Links</a>
+                                        </div>
+                                    </div> -->
                                     <div class="row custom-btns">
                                         <div class="col-lg-12">
                                             <div class="text-center">
