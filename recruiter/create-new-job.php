@@ -25,7 +25,7 @@ if(isset($_POST['create_new_jobs']))
 $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_id']);
 } 
 ?>
-    <div class="content-wrapper type-2 bg-dots">
+    <div class="content-wrapper type-2 bg-dots add-job-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -104,10 +104,10 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                             <div class="form-group">
                                                 <label for="">Mention top 5 skills needed</label>
                                                 <div class="row">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-2 col-lg-2">
                                                         <div class="sl">1.</div>
                                                     </div>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-10 col-lg-10">
                                                         <div class="skill-block">
                                                         <select  name="top5_1" required="required" class="form-control" style="width: 100%;">
                                                         <option value="">Select a skill</option>
@@ -119,10 +119,10 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-2 col-lg-2">
                                                         <div class="sl">2.</div>
                                                     </div>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-10 col-lg-10">
                                                         <div class="skill-block">
                                                             <select  name="top5_2" required="required"  class="form-control" style="width: 100%;">
                                                             <option value="">Select a skill</option>
@@ -134,10 +134,10 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-2 col-lg-2">
                                                         <div class="sl">3.</div>
                                                     </div>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-10 col-lg-10">
                                                         <div class="skill-block">
                                                             <select  name="top5_3" required="required"  class="form-control" style="width: 100%;">
                                                             <option value="">Select a skill</option>
@@ -149,10 +149,10 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-2 col-lg-2">
                                                         <div class="sl">4.</div>
                                                     </div>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-10 col-lg-10">
                                                         <div class="skill-block">
                                                             <select  name="top5_4" required="required"  class="form-control" style="width: 100%;">
                                                             <option value="">Select a skill</option>
@@ -164,10 +164,10 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-2">
+                                                    <div class="col-2 col-lg-2">
                                                         <div class="sl">5.</div>
                                                     </div>
-                                                    <div class="col-lg-10">
+                                                    <div class="col-10 col-lg-10">
                                                         <div class="skill-block">
                                                             <select  name="top5_5" required="required"  class="form-control" style="width: 100%;">
                                                             <option value="">Select a skill</option>
@@ -197,7 +197,7 @@ $msg = $objectjdsr->createNewJobs($subrid,$subRecruiterDetails['super_recruiter_
                                     </div>
                                     <div class="row">
                                         <div class="d-right"> 
-                                            <input type="submit" name="create_new_jobs" class="btn-custom btn-next" value="Save">
+                                            <input type="submit" name="create_new_jobs" class="btn-custom btn-next" value="Submit">
                                         </div>                                     
                                     </div>
                                 </div>   
