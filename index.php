@@ -159,7 +159,7 @@
                                                 ?>
                                                 <div class="col-md-4">
                                                     <div class="cards type-1">
-                                                        <div class="company-details d-flex justify-content-between">
+                                                        <div class="company-details">
                                                             <div class="details">
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="title"><?= $uOD['title']?></div>

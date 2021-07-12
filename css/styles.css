@@ -282,7 +282,7 @@ header{
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255);
     opacity: 1;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .navbar-dark .navbar-nav .nav-link .small-txt{
@@ -563,9 +563,9 @@ header{
 
 @media(max-width:768px){
 
-    .banner {
+    /* .banner {
         background: url(../images/HomepageBannerBGMobile.png);
-    }
+    } */
     .banner .carousel {
         width: 98%;
         padding-top: 194px;
@@ -738,6 +738,28 @@ header{
 
 .jobs-container .owl-carousel.owl-drag .owl-item .row {
     margin: 0;
+}
+
+.new-jobs .jobs-block .block-item:first-child,.new-jobs .jobs-block .block-item:nth-child(2) {
+    width: 50%;
+}
+.new-jobs .jobs-block .block-item:nth-child(2) {
+    width: 30%;
+}
+.new-jobs .jobs-block .block-item:nth-child(3) {
+    width:200px
+}
+
+.new-jobs .jobs-block .block-item:last-child {
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-jobs  .jobs-block-wrapper .jobs-block {
+    justify-content: unset;
 }
 
 
@@ -2305,7 +2327,7 @@ justify-content: center;
 
 
 .jobs-block .block-item .title{
-    font-size: 21   px;
+    font-size: 21px;
     font-weight: 500;
 }
 
@@ -3938,4 +3960,44 @@ p {
 .c-details .bg-col {
     background: aliceblue;
     border-radius: 8px;
+}
+
+/* Owl Carousel */
+.owl-carousel.top-companies-carousel .owl-nav.disabled {
+    display: block;
+}
+
+
+/* Media Queries */
+/* ======================== */
+@media(max-width:1000px){
+    .jp_header_form_wrapper {
+        padding-top: 0;
+    }
+
+    .jp_header_form_wrapper input,  .jp_header_form_wrapper select {
+        margin-bottom: 10px;
+    }
+    .new-jobs .jobs-block-wrapper .jobs-block {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .new-jobs  .jobs-block-wrapper .jobs-block .block-item {
+        width: 100%;
+    }
+    .new-jobs .jobs-block-wrapper .jobs-block:last-child {
+        margin-bottom: 30px;
+    }
+
+    .side-block-wrapper {
+        padding-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .jobs-container {
+        padding-bottom: 0px;
+    }
+
 }

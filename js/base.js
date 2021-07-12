@@ -241,7 +241,7 @@ $(".custom-file-input").on("change", function() {
 		e.preventDefault();
   });
   
-
+    if($('#ChildVerticalTab_1').length) {
         // Child Tab
         $('#ChildVerticalTab_1').easyResponsiveTabs({
           type: 'vertical',
@@ -253,6 +253,7 @@ $(".custom-file-input").on("change", function() {
           active_border_color: '#c1c1c1', // border color for active tabs heads in this group
           active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
       });
+    }
   
 });
   
