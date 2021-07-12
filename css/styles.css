@@ -3966,7 +3966,9 @@ p {
 .owl-carousel.top-companies-carousel .owl-nav.disabled {
     display: block;
 }
-
+.navbar-dark .logo-main img.logo-white, .navbar-light .logo-main img.logo-black  {
+    display: none !important;
+}
 
 /* Media Queries */
 /* ======================== */
@@ -3999,5 +4001,39 @@ p {
     .jobs-container {
         padding-bottom: 0px;
     }
+    /* Jobs Page */
+    .f-menu {
+        padding: 10px;
+        border-radius: 30px;
+    }
+    .clear-wrap, .count {
+        text-align: center;
+    }
+    .cc-wrapper .f-details-wrapper .f-details + .f-details {
+        margin-left: 0;
+    }
+    .cc-wrapper .f-details-wrapper .f-details {
+        margin-right: 8px;
+    }
+    .cc-wrapper .skill {
+        margin: 8px;
+    }
+    .cc-wrapper .skill + .skill {
+        margin-left: 8px;
+    }
+    .cc-wrapper .cc-posted {
+        width: 100%;
+        padding: 0;
+    }
+    .cc-wrapper .cc-posted .a-no.type-1 {
+        width: 100%;
+    }
 
+    .cc-wrapper .cc-posted .a-no.type-1 {
+        margin: 5px 0;
+        font-size: 15px;
+    }
+    .cc-wrapper .j-title {
+        margin-top: 10px;
+    }
 }

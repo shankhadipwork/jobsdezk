@@ -47,15 +47,15 @@
                             </div>
                         </div>
                         <div class="row justify-content-between">
-                            <div class="col-4 col-md-4">
+                            <div class="col-12 col-md-4">
                                 <div class="count clear-wrap">
                                     <a href="" class="clear">Clear All</a>
                                 </div>
                             </div>
-                            <div class="col-4  col-md-3">
+                            <div class="col-12 col-md-3">
                                 <button type="button" class="btn btn-outline-primary btn-search">Search</button>
                             </div>
-                            <div class="col-4 col-md-4">
+                            <div class="col-12 col-md-4">
                                 <div class="count">
                                     Showing <span>1 - 30</span> of 200
                                 </div>

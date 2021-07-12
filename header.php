@@ -4,7 +4,8 @@
 				<div class="container">
 					<a class="navbar-brand" href="index">
 						<div class="logo-main">
-							<img src="images/logo.png" alt="JobsdeZk" class="d-none d-sm-block">
+							<img src="images/logo.png" alt="JobsdeZk" class="d-none d-sm-block logo-black">
+							<img src="images/logo-new.png" alt="JobsdeZk" class="d-none d-sm-block logo-white">
 							<img src="images/logo-xs.png" alt="JobsdeZk" class="d-block d-md-none">
 						</div>
 					</a>

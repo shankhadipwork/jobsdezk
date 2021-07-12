@@ -254,6 +254,12 @@ $(".custom-file-input").on("change", function() {
           active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
       });
     }
+
+
+    var pathname = window.location.pathname.split( '/' );
+    if(pathname[2] !=='' && pathname[2] !== 'index') {
+        $('header .navbar').removeClass('navbar-dark').addClass('navbar-light')
+    }
   
 });
   
@@ -278,6 +284,9 @@ function statusChange(data){
     } 
   });
 }
+
+
+
 
 
 
