@@ -152,8 +152,23 @@ class main
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
+	function specificJobTokens()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `job_tokens` LIMIT 1");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}	
 
 	// Function End For Sliding Banner
+
+	// Function Start For Tail Vertical Bar
+	function specificTailVerticalBar()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `tail_veertical_bar` LIMIT 1");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+	// Function End For Tail Vertical Bar
 
 }	
 

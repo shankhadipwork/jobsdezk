@@ -308,6 +308,392 @@ class main
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
 	// Function End For job Dezk About Us
+
+	//Function Start For Job Tokens
+	function insertJobTokens()
+	{
+		$image1 = $_FILES['image1']['name'];
+		$image2 = $_FILES['image2']['name'];
+		$image3 = $_FILES['image3']['name'];
+		$image4 = $_FILES['image4']['name'];
+		$image5 = $_FILES['image5']['name'];
+		$image6 = $_FILES['image6']['name'];
+		$image7 = $_FILES['image7']['name'];
+		if($image1 !=''){
+			$image1 =  pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+			$image1 = rand().time().'.'.$image1;
+		}
+		if($image2 !=''){
+			$image2 =  pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+			$image2 = rand().time().'.'.$image2;
+		}
+		if($image3 !=''){
+			$image3 =  pathinfo($_FILES['image3']['name'], PATHINFO_EXTENSION);
+			$image3 = rand().time().'.'.$image3;
+		}
+		if($image4 !=''){
+			$image4 =  pathinfo($_FILES['image4']['name'], PATHINFO_EXTENSION);
+			$image4 = rand().time().'.'.$image4;
+		} 
+		if($image5 !=''){
+			$image5 =  pathinfo($_FILES['image5']['name'], PATHINFO_EXTENSION);
+			$image5 = rand().time().'.'.$image5;
+		}
+		if($image6 !=''){
+			$image6 =  pathinfo($_FILES['image6']['name'], PATHINFO_EXTENSION);
+			$image6 = rand().time().'.'.$image6;
+		}
+		if($image7 !=''){
+			$image7 =  pathinfo($_FILES['image7']['name'], PATHINFO_EXTENSION);
+			$image7 = rand().time().'.'.$image7;
+		}		
+		$currentTime = time();		
+			$insertJobTokensImage = $this->db->query("INSERT INTO `job_tokens`(`image1`, `image2`, `image3`,
+			`image4`, `image5`, `image6`, `image7`, `status`, `updateed_at`) 
+			VALUES ('".$image1."','".$image2."','".$image3."','".$image4."','".$image5."','".$image6."',
+			'".$image7."','1','".$currentTime."') ");
+		 if($insertJobTokensImage){
+			move_uploaded_file($_FILES['image1']['tmp_name'],'../images/job_tokens/'.$image1);	
+			move_uploaded_file($_FILES['image2']['tmp_name'],'../images/job_tokens/'.$image2);	
+			move_uploaded_file($_FILES['image3']['tmp_name'],'../images/job_tokens/'.$image3);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/job_tokens/'.$image4);
+			move_uploaded_file($_FILES['image5']['tmp_name'],'../images/job_tokens/'.$image5);
+			move_uploaded_file($_FILES['image6']['tmp_name'],'../images/job_tokens/'.$image6);
+			move_uploaded_file($_FILES['image7']['tmp_name'],'../images/job_tokens/'.$image7);	
+			return "<span style='color:green;font-size: 16px;font-weight:600'>Sucessfully inserted</span>";
+		 }
+		 else
+		return "<span style='color:red;font-size: 16px;font-weight:600'>Something went wrong</span>";
+
+		
+			
+	}
+	function updateJobTokens()
+	{
+		$image1 = $_FILES['image1']['name'];
+		$image2 = $_FILES['image2']['name'];
+		$image3 = $_FILES['image3']['name'];
+		$image4 = $_FILES['image4']['name'];
+		$image5 = $_FILES['image5']['name'];
+		$image6 = $_FILES['image6']['name'];
+		$image7 = $_FILES['image7']['name'];
+		$specificJobTokens=$this->specificJobTokens();
+		if($image1 !='')
+		{
+			$image1 =  pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+			$image1 = rand().time().'.'.$image1;
+			unlink('../images/job_tokens/'.$specificJobTokens['image1']);
+			move_uploaded_file($_FILES['image1']['tmp_name'],'../images/job_tokens/'.$image1);					 
+		}
+		if($image1 =='')
+		{
+			if($specificJobTokens['image1']!='')
+			{
+				$image1=$specificJobTokens['image1'];				
+			}
+			if($specificJobTokens['image1']=='')
+			{
+				$image1='';
+			}   
+		}
+	    if($image2 !='')
+		{
+			$image2 =  pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+			$image2 = rand().time().'.'.$image2;
+			unlink('../images/job_tokens/'.$specificJobTokens['image2']);
+			move_uploaded_file($_FILES['image2']['tmp_name'],'../images/job_tokens/'.$image2);					 
+		}
+		if($image2 =='')
+		{
+			if($specificJobTokens['image2']!='')
+			{
+				$image2=$specificJobTokens['image2'];				
+			}
+			if($specificJobTokens['image2']=='')
+			{
+				$image2='';
+			}   
+		}
+		if($image3 !='')
+		{
+			$image3 =  pathinfo($_FILES['image3']['name'], PATHINFO_EXTENSION);
+			$image3 = rand().time().'.'.$image3;
+			unlink('../images/job_tokens/'.$specificJobTokens['image3']);
+			move_uploaded_file($_FILES['image3']['tmp_name'],'../images/job_tokens/'.$image3);					 
+		}
+		if($image3 =='')
+		{
+			if($specificJobTokens['image3']!='')
+			{
+				$image3=$specificJobTokens['image3'];				
+			}
+			if($specificJobTokens['image3']=='')
+			{
+				$image3='';
+			}   
+		}
+		if($image4 !='')
+		{
+			$image4 =  pathinfo($_FILES['image4']['name'], PATHINFO_EXTENSION);
+			$image4 = rand().time().'.'.$image4;
+			unlink('../images/job_tokens/'.$specificJobTokens['image4']);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/job_tokens/'.$image4);					 
+		}
+		if($image4 =='')
+		{
+			if($specificJobTokens['image4']!='')
+			{
+				$image4=$specificJobTokens['image4'];				
+			}
+			if($specificJobTokens['image4']=='')
+			{
+				$image4='';
+			}   
+		}
+		if($image5 !='')
+		{
+			$image5 =  pathinfo($_FILES['image5']['name'], PATHINFO_EXTENSION);
+			$image5 = rand().time().'.'.$image5;
+			unlink('../images/job_tokens/'.$specificJobTokens['image5']);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/job_tokens/'.$image5);					 
+		}
+		if($image5 =='')
+		{
+			if($specificJobTokens['image5']!='')
+			{
+				$image5=$specificJobTokens['image5'];				
+			}
+			if($specificJobTokens['image5']=='')
+			{
+				$image5='';
+			}   
+		}
+		if($image6 !='')
+		{
+			$image6 =  pathinfo($_FILES['image6']['name'], PATHINFO_EXTENSION);
+			$image6 = rand().time().'.'.$image6;
+			unlink('../images/job_tokens/'.$specificJobTokens['image6']);
+			move_uploaded_file($_FILES['image6']['tmp_name'],'../images/job_tokens/'.$image6);					 
+		}
+		if($image6 =='')
+		{
+			if($specificJobTokens['image6']!='')
+			{
+				$image6=$specificJobTokens['image6'];				
+			}
+			if($specificJobTokens['image6']=='')
+			{
+				$image6='';
+			}   
+		}
+		if($image7 !='')
+		{
+			$image7 =  pathinfo($_FILES['image7']['name'], PATHINFO_EXTENSION);
+			$image7 = rand().time().'.'.$image7;
+			unlink('../images/job_tokens/'.$specificJobTokens['image7']);
+			move_uploaded_file($_FILES['image7']['tmp_name'],'../images/job_tokens/'.$image7);					 
+		}
+		if($image7 =='')
+		{
+			if($specificJobTokens['image7']!='')
+			{
+				$image7=$specificJobTokens['image7'];				
+			}
+			if($specificJobTokens['image7']=='')
+			{
+				$image7='';
+			}   
+		}
+		
+		$currentTime = time();		
+			$updateSlidingImage = $this->db->query("UPDATE `job_tokens` SET `image1`='".$image1."',
+			`image2`='".$image2."',`image3`='".$image3."',`image4`='".$image4."',`image5`='".$image5."',
+			`image6`='".$image6."',`image7`='".$image7."',`status`='1',`updateed_at`= '".$currentTime."' WHERE 1");
+			return "<span style='color:green;font-size: 16px;font-weight:600'>Sucessfully Updated</span>";
+			
+			
+	}
+	public function jobTokensRowCount()
+	{
+		$sql=$this->db->query("SELECT * FROM `job_tokens`");
+		return $sql->rowCount($sql); ;
+	}
+	function specificJobTokens()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `job_tokens` LIMIT 1");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+
+	// Function End For Sliding Banner
+	// Function Start For Tail Vertical Bar
+	function insertTailVerticalBar()
+	{
+		$image1 = $_FILES['image1']['name'];
+		$image2 = $_FILES['image2']['name'];
+		$image3 = $_FILES['image3']['name'];
+		$image4 = $_FILES['image4']['name'];
+		$image5 = $_FILES['image5']['name'];
+		if($image1 !=''){
+			$image1 =  pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+			$image1 = rand().time().'.'.$image1;
+		}
+		if($image2 !=''){
+			$image2 =  pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+			$image2 = rand().time().'.'.$image2;
+		}
+		if($image3 !=''){
+			$image3 =  pathinfo($_FILES['image3']['name'], PATHINFO_EXTENSION);
+			$image3 = rand().time().'.'.$image3;
+		}
+		if($image4 !=''){
+			$image4 =  pathinfo($_FILES['image4']['name'], PATHINFO_EXTENSION);
+			$image4 = rand().time().'.'.$image4;
+		} 
+		if($image5 !=''){
+			$image5 =  pathinfo($_FILES['image5']['name'], PATHINFO_EXTENSION);
+			$image5 = rand().time().'.'.$image5;
+		}	
+		$currentTime = time();	
+			$insertTailVerticalBar = $this->db->query("INSERT INTO `tail_veertical_bar`(`image1`, `image2`, `image3`,
+			`image4`, `image5`, `status`, `updated_at`) 
+			VALUES ('".$image1."','".$image2."','".$image3."','".$image4."','".$image5."','1','".$currentTime."') ");
+		 if($insertTailVerticalBar){
+			move_uploaded_file($_FILES['image1']['tmp_name'],'../images/tail_vertical_bar/'.$image1);	
+			move_uploaded_file($_FILES['image2']['tmp_name'],'../images/tail_vertical_bar/'.$image2);	
+			move_uploaded_file($_FILES['image3']['tmp_name'],'../images/tail_vertical_bar/'.$image3);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/tail_vertical_bar/'.$image4);
+			move_uploaded_file($_FILES['image5']['tmp_name'],'../images/tail_vertical_bar/'.$image5);	
+			return "<span style='color:green;font-size: 16px;font-weight:600'>Sucessfully inserted</span>";
+		 }
+		 else
+		return "<span style='color:red;font-size: 16px;font-weight:600'>Something went wrong</span>";
+
+		
+			
+	}
+	function updateTailVerticalBar()
+	{
+		$image1 = $_FILES['image1']['name'];
+		$image2 = $_FILES['image2']['name'];
+		$image3 = $_FILES['image3']['name'];
+		$image4 = $_FILES['image4']['name'];
+		$image5 = $_FILES['image5']['name'];
+		$tailVerticalBar=$this->specificTailVerticalBar();		
+		if($image1 !='')
+		{
+			$image1 =  pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+			$image1 = rand().time().'.'.$image1;
+			unlink('../images/tail_vertical_bar/'.$tailVerticalBar['image1']);
+			move_uploaded_file($_FILES['image1']['tmp_name'],'../images/tail_vertical_bar/'.$image1);					 
+		}
+		if($image1 =='')
+		{
+			if($tailVerticalBar['image1']!='')
+			{
+				$image1=$tailVerticalBar['image1'];				
+			}
+			if($tailVerticalBar['image1']=='')
+			{
+				$image1='';
+			}   
+		}
+	    if($image2 !='')
+		{
+			$image2 =  pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+			$image2 = rand().time().'.'.$image2;
+			unlink('../images/tail_vertical_bar/'.$tailVerticalBar['image2']);
+			move_uploaded_file($_FILES['image2']['tmp_name'],'../images/tail_vertical_bar/'.$image2);					 
+		}
+		if($image2 =='')
+		{
+			if($tailVerticalBar['image2']!='')
+			{
+				$image2=$tailVerticalBar['image2'];				
+			}
+			if($tailVerticalBar['image2']=='')
+			{
+				$image2='';
+			}   
+		}
+		if($image3 !='')
+		{
+			$image3 =  pathinfo($_FILES['image3']['name'], PATHINFO_EXTENSION);
+			$image3 = rand().time().'.'.$image3;
+			unlink('../images/tail_vertical_bar/'.$tailVerticalBar['image3']);
+			move_uploaded_file($_FILES['image3']['tmp_name'],'../images/tail_vertical_bar/'.$image3);					 
+		}
+		if($image3 =='')
+		{
+			if($tailVerticalBar['image3']!='')
+			{
+				$image3=$tailVerticalBar['image3'];				
+			}
+			if($tailVerticalBar['image3']=='')
+			{
+				$image3='';
+			}   
+		}
+		if($image4 !='')
+		{
+			$image4 =  pathinfo($_FILES['image4']['name'], PATHINFO_EXTENSION);
+			$image4 = rand().time().'.'.$image4;
+			unlink('../images/tail_vertical_bar/'.$tailVerticalBar['image4']);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/tail_vertical_bar/'.$image4);					 
+		}
+		if($image4 =='')
+		{
+			if($tailVerticalBar['image4']!='')
+			{
+				$image4=$tailVerticalBar['image4'];				
+			}
+			if($tailVerticalBar['image4']=='')
+			{
+				$image4='';
+			}   
+		}
+		if($image5 !='')
+		{
+			$image5 =  pathinfo($_FILES['image5']['name'], PATHINFO_EXTENSION);
+			$image5 = rand().time().'.'.$image5;
+			unlink('../images/tail_vertical_bar/'.$tailVerticalBar['image5']);
+			move_uploaded_file($_FILES['image4']['tmp_name'],'../images/tail_vertical_bar/'.$image5);					 
+		}
+		if($image5 =='')
+		{
+			if($tailVerticalBar['image5']!='')
+			{
+				$image5=$tailVerticalBar['image5'];				
+			}
+			if($tailVerticalBar['image5']=='')
+			{
+				$image5='';
+			}   
+		}
+		
+		$currentTime = time();		
+			$updateTailVerticalbar = $this->db->query("UPDATE `tail_veertical_bar` SET `image1`='".$image1."',
+			`image2`='".$image2."',`image3`='".$image3."',`image4`='".$image4."',`image5`='".$image5."',
+			`status`='1',`updated_at`= '".$currentTime."' WHERE 1");
+			return "<span style='color:green;font-size: 16px;font-weight:600'>Sucessfully Updated</span>";
+			
+			
+	}
+
+	public function tailVerticalBarCount()
+	{
+		$sql=$this->db->query("SELECT * FROM `tail_veertical_bar`");
+		return $sql->rowCount($sql); ;
+	}
+	function specificTailVerticalBar()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `tail_veertical_bar` LIMIT 1");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+
+	// Function End For Tail Vertical Bar
+
 	
 
 }	

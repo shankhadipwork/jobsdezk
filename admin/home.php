@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Material Dash</title>
+  <title>Home Config</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -37,8 +37,28 @@
         elseif($specificSlidingBanner>0){
             $msg=$objectjda->updateSlidingBanner();
         }
-       
-     
+      }
+      $jobTokens = $objectjda->specificJobTokens();
+      if(isset($_POST['job_token']))
+      {   
+        $jobTokensRowCount=$objectjda->jobTokensRowCount();
+        if($jobTokensRowCount<1){
+            $msg=$objectjda->insertJobTokens();
+        }
+        elseif($jobTokensRowCount>0){
+            $msg=$objectjda->updateJobTokens();
+        }
+      }
+      $tVB = $objectjda->specificTailVerticalBar();
+      if(isset($_POST['tail_vertical_bar']))
+      {   
+        $tailVerticalBarCount=$objectjda->tailVerticalBarCount();
+        if($tailVerticalBarCount<1){
+            $msg=$objectjda->insertTailVerticalBar();
+        }
+        elseif($tailVerticalBarCount>0){
+            $msg=$objectjda->updateTailVerticalBar();
+        }
       }
       ?>
       <!-- partial -->
@@ -46,20 +66,6 @@
         <main class="content-wrapper">
           <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner tabs-nav">
-              <a href="#rightBanner" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet ">
-                <div class="mdc-card info-card info-card--success d-blue">
-                  <div class="card-inner">
-                  Right Banner
-                  </div>
-                </div>
-              </a>
-              <a href="#companiesLogo" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
-                <div class="mdc-card info-card info-card--success d-green">
-                  <div class="card-inner">
-                  Companies Logo
-                  </div>
-                </div>
-              </a>
               <a href="#slidingBanner" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--success d-red">
                   <div class="card-inner">
@@ -70,643 +76,21 @@
               <a href="#jobToken" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--success d-orange">
                   <div class="card-inner">
-                    Job Tokens
+                  Top Vertical Bar
                   </div>
                 </div>
               </a>
-              <a href="#verticalBar" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
+              <a href="#tailverticalBar" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--success d-yellow">
                   <div class="card-inner">
-                    Vertical Bar
-                  </div>
-                </div>
-              </a>
-              <a href="#lowerTokenBanner" class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet">
-                <div class="mdc-card info-card info-card--success d-purple">
-                  <div class="card-inner">
-                    Lower Token Banner
+                    Tail Vertical Bar
                   </div>
                 </div>
               </a>
             </div>
             <div class="mdc-layout-grid__inner mt-4 tabs-content">
-               
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="rightBanner">
-                  <div class="mdc-card">
-                    <div class="d-flex justify-content-between">
-                      <h4 class="card-title mb-0">Home Page Right Banner</h4>
-                    </div>
-                    <div class="d-block d-sm-flex justify-content-between align-items-center">
-                        <h5 class="card-sub-title mb-2 mb-sm-0">Drag and Drop files</h5>
-                    </div>
-                    <div class="mdc-layout-grid__inner mt-4">   
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> 
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> 
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>                        
-                        </div>
-                      </div>  
-
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 template-demo action-btns">
-                            <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Preview
-                            </button>
-                            <button class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Save
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="companiesLogo">
-                  <div class="mdc-card">
-                    <div class="d-flex justify-content-between">
-                      <h4 class="card-title mb-0">Companies Logo</h4>
-                    </div>
-                    <div class="d-block d-sm-flex justify-content-between align-items-center">
-                        <h5 class="card-sub-title mb-2 mb-sm-0">Drag and Drop files</h5>
-                    </div>
-                    <div class="mdc-layout-grid__inner mt-4">   
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> 
-                      
-
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 template-demo action-btns">
-                            <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Preview
-                            </button>
-                            <button class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Save
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+                
 
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="slidingBanner">
@@ -834,6 +218,7 @@
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="jobToken">
                   <div class="mdc-card">
+                  <form method="POST" enctype='multipart/form-data'>
                     <div class="d-flex justify-content-between">
                       <h4 class="card-title mb-0">Job Token</h4>
                     </div>
@@ -860,7 +245,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone" style="height: 330px;">
+                                <input type="file" name="image1" accept="image/gif, image/jpeg, image/png"  class="dropzone" style="height: 330px;">
+                                <?php if($jobTokens['image1'] != '' ) {?>
+                                <img src = "../images/job_tokens/<?=$jobTokens['image1']?>" width="300"  height="330" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -892,7 +280,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image2" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image2'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image2']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -922,7 +313,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image3" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image3'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image3']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -952,7 +346,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image4" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image4'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image4']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -982,7 +379,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image5" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image5'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image5']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -1012,7 +412,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image6" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image6'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image6']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -1042,7 +445,10 @@
                                       <i class="glyphicon glyphicon-download-alt"></i>
                                       <p>Choose an image file or drag it here.</p>
                                     </div>
-                                    <input type="file" name="img_logo" class="dropzone">
+                                    <input type="file" name="image7" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                    <?php if($jobTokens['image7'] != '' ) {?>
+                                    <img src = "../images/job_tokens/<?=$jobTokens['image7']?>" width="200"  height="150" />
+                                    <?php } ?>
                                   </div>
                                 </div>                  
                                 <div class="row" style="display: none;">
@@ -1061,16 +467,18 @@
                             <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
                               Preview
                             </button>
-                            <button class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
+                            <button name="job_token" class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
                               Save
                             </button>
                         </div>
                     </div>
+                    </form>
                   </div>
                 </div>
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="verticalBar">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="tailverticalBar">
                   <div class="mdc-card">
+                  <form method="POST" enctype='multipart/form-data'>
                     <div class="d-flex justify-content-between">
                       <h4 class="card-title mb-0">Home Page Vertical Bar</h4>
                     </div>
@@ -1097,7 +505,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone">
+                                <input type="file" name="image1" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                <?php if($tVB['image1'] != '' ) {?>
+                                  <img src = "../images/tail_vertical_bar/<?=$tVB['image1']?>" width="300"  height="150" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -1127,7 +538,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone">
+                                <input type="file" name="image2" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                <?php if($tVB['image2'] != '' ) {?>
+                                  <img src = "../images/tail_vertical_bar/<?=$tVB['image2']?>" width="300"  height="150" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -1157,7 +571,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone">
+                                <input type="file" name="image3" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                <?php if($tVB['image3'] != '' ) {?>
+                                  <img src = "../images/tail_vertical_bar/<?=$tVB['image3']?>" width="300"  height="150" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -1187,7 +604,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone">
+                                <input type="file" name="image4" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                <?php if($tVB['image4'] != '' ) {?>
+                                  <img src = "../images/tail_vertical_bar/<?=$tVB['image4']?>" width="300"  height="150" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -1217,7 +637,10 @@
                                   <i class="glyphicon glyphicon-download-alt"></i>
                                   <p>Choose an image file or drag it here.</p>
                                 </div>
-                                <input type="file" name="img_logo" class="dropzone">
+                                <input type="file" name="image5" accept="image/gif, image/jpeg, image/png" class="dropzone">
+                                <?php if($tVB['image5'] != '' ) {?>
+                                  <img src = "../images/tail_vertical_bar/<?=$tVB['image5']?>" width="300"  height="150" />
+                                <?php } ?>
                               </div>
                             </div>                  
                             <div class="row" style="display: none;">
@@ -1227,163 +650,22 @@
                             </div>
                           </div>                        
                         </div>
-                      </div> 
-                      
+                      </div>                       
 
                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 template-demo action-btns">
                             <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
                               Preview
                             </button>
-                            <button class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
+                            <button name="tail_vertical_bar" class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
                               Save
                             </button>
                         </div>
                     </div>
+                    </form>
                   </div>
                 </div>
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 tab-panel" id="lowerTokenBanner">
-                  <div class="mdc-card">
-                    <div class="d-flex justify-content-between">
-                      <h4 class="card-title mb-0">Home Page Lower Token Banner</h4>
-                    </div>
-                    <div class="d-block d-sm-flex justify-content-between align-items-center">
-                        <h5 class="card-sub-title mb-2 mb-sm-0">Drag and Drop files</h5>
-                    </div>
-                    <div class="mdc-layout-grid__inner mt-4">   
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> 
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> 
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>                        
-                        </div>
-                      </div>  
-                      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">            
-                        <div class="custom-form">
-                          <div class="container">
-                            <div class="form-group upload-file">
-                              <div class="preview-zone hidden">
-                                <div class="box box-solid">
-                                  <div class="box-header with-border">
-                                    <div class="box-tools pull-right">
-                                      <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
-                                    </div>
-                                  </div>
-                                  <div class="box-body"></div>
-                                </div>
-                              </div>
-                              <div class="dropzone-wrapper">
-                                <div class="dropzone-desc">
-                                  <i class="glyphicon glyphicon-download-alt"></i>
-                                  <p>Choose an image file or drag it here.</p>
-                                </div>
-                                <input type="file" name="img_logo" class="dropzone">
-                              </div>
-                            </div>                  
-                            <div class="row" style="display: none;">
-                              <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
-                              </div>
-                            </div>
-                          </div>                        
-                        </div>
-                      </div> 
-                      
-
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 template-demo action-btns">
-                            <button class="mdc-button mdc-button--raised mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Preview
-                            </button>
-                            <button class="mdc-button mdc-button--raised filled-button--success mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.87894; --mdc-ripple-fg-translate-start:-6.28125px, -28px; --mdc-ripple-fg-translate-end:24px, -18px;">
-                              Save
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+                
 
 
               

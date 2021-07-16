@@ -36,10 +36,18 @@ $candidateDetails = $objectJobsDezk-> speciCandidateDetails($cid);
                             </a>
                         </div>
                         <div class="u-profile">
-                            <a href="logout">LogOut
+                            <a href="javascript:;" class="profile-icon">
                                 <img src="../images/photo.png" alt="">
-                                <i class="fa fa-angle-down" aria-hidden="true"></i>                                
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
+                            <div class="dd-menu">
+                                <div class="item">
+                                    <a href="">My Account</a>
+                                </div>
+                                <div class="item">
+                                    <a href="logout">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

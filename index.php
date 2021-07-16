@@ -192,27 +192,37 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="side-block-wrapper">
+                                <?php $findAllJobTokens = $objectvtv->specificJobTokens();
+                                if($findAllJobTokens['image1'] != '' ) {      ?>                           
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image1']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image2'] != '' ) { ?>
+
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image2']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image3'] != '' ) { ?>
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image3']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image4'] != '' ) { ?>
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image4']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image5'] != '' ) { ?>
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image5']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image6'] != '' ) { ?>
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image6']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  if($findAllJobTokens['image7'] != '' ) { ?>
                                 <div class="side-block">
-                                    <img src="images/red.jpg" alt="" class="img-fluid">
+                                    <img src="images/job_tokens/<?=$findAllJobTokens['image7']?>" alt="" class="img-fluid">
                                 </div>
+                                <?php }  ?>
                             </div>
                         </div>
                     </div>
@@ -281,15 +291,20 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="side-block-wrapper">
+                                <?php $findTailVerticalbar = $objectvtv->specificTailVerticalBar();
+                                if($findTailVerticalbar['image1'] != '' ) {      ?>   
                                     <div class="side-block">
-                                        <img src="images/red.jpg" alt="" class="img-fluid">
+                                        <img src="images/tail_vertical_bar/<?=$findTailVerticalbar['image1']?>" alt="" class="img-fluid">
                                     </div>
+                                    <?php }  if($findTailVerticalbar['image2'] != '' ) { ?>
                                     <div class="side-block">
-                                        <img src="images/red.jpg" alt="" class="img-fluid">
+                                        <img src="images/tail_vertical_bar/<?=$findTailVerticalbar['image2']?>" alt="" class="img-fluid">
                                     </div>
+                                    <?php }  if($findTailVerticalbar['image3'] != '' ) { ?>
                                     <div class="side-block">
-                                        <img src="images/red.jpg" alt="" class="img-fluid">
+                                        <img src="images/tail_vertical_bar/<?=$findTailVerticalbar['image3']?>" alt="" class="img-fluid">
                                     </div>
+                                    <?php } ?>
                                    
                                 </div>
                             </div>

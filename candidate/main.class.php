@@ -439,6 +439,12 @@ class main
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
+	function speciCompanyDetails($id)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `compnay` WHERE `id`=$id");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
 	
 
 }	

@@ -130,7 +130,7 @@
                                     
                                 </div>
                                 <div class="a-no type-1 cl-white">
-                                    View
+                                    <a href="job-details?jid=Nw==">View</a>
                                 </div>
                                 <div class="posted-on">
                                     Posted on 27th Jan 2021

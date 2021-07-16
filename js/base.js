@@ -256,10 +256,10 @@ $(".custom-file-input").on("change", function() {
     }
 
 
-    var pathname = window.location.pathname.split( '/' );
-    if(pathname[2] !=='' && pathname[2] !== 'index') {
-        $('header .navbar').removeClass('navbar-dark').addClass('navbar-light')
-    }
+    // var pathname = window.location.pathname.split( '/' );
+    // if(pathname[2] !=='' && pathname[2] !== 'index') {
+    //     $('header .navbar').removeClass('navbar-dark').addClass('navbar-light')
+    // }
   
 });
   
