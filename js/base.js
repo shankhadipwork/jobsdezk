@@ -286,6 +286,35 @@ function statusChange(data){
 }
 
 
+/* Custom Dropdown */
+$('.c-dropdown').on('keyup', function(e){
+  e.preventDefault();
+  console.log(this.value.length)
+  if(this.value.length > 2){
+    $(this).closest('.d-toggle').find('.custom-dropdown').addClass('fade in')
+  } else {
+    $(this).closest('.d-toggle').find('.custom-dropdown').removeClass('fade in')
+  }
+})
+$(document).on('click', function(e){
+  var node = $(e.target);
+ 
+  console.log(node)
+  if(!node.hasClass('search-field')) {
+    $('.search-field').next().removeClass('fade in')
+  }else {
+    var len = e.target.value.length;
+    if(len > 2){
+      $('.search-field').next().addClass('fade in')
+    }
+  }
+  if(!node.hasClass('location-field')) {
+    $('.location-field').next().next().removeClass('fade in')
+  } else {
+      $('.location-field').next().next().addClass('fade in')
+  }
+})
+
 
 
 

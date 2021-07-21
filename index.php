@@ -44,20 +44,130 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
-                                                        <i class="fa fa-search search_icon"></i>
-                                                        <input type="text" placeholder="Keyword e.g. (Job Title, Description, Tags)">
+                                                        <div class="d-toggle">
+                                                            <i class="fa fa-search search_icon"></i>
+                                                            <input type="text" placeholder="Keyword e.g. (Job Title, Description, Tags)" class="c-dropdown search-field">
+                                                            <div class="custom-dropdown">
+                                                                <div class="list-wrapper">
+                                                                    <div class="list-block">
+                                                                        <div class="details">
+                                                                            <div class="d-flex justify-content-between">
+                                                                                <div class="title">Cloud IAS Engineering</div>
+                                                                                <div class="tag">
+                                                                                    Full-Time                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="company-title">Accenture</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="list-block">
+                                                                        <div class="company-details">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title">Full Stack  Backend Developer</div>
+                                                                                    <div class="tag">
+                                                                                        Full-Time                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="company-title">Accenture</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="list-block">
+                                                                        <div class="company-details">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title">Full Stack  Backend Developer</div>
+                                                                                    <div class="tag">
+                                                                                        Full-Time                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="company-title">Accenture</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="list-block">
+                                                                        <div class="company-details">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title">Full Stack  Backend Developer</div>
+                                                                                    <div class="tag">
+                                                                                        Full-Time                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="company-title">Accenture</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="list-block">
+                                                                        <div class="company-details">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title">Full Stack  Backend Developer</div>
+                                                                                    <div class="tag">
+                                                                                        Full-Time                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="company-title">Accenture</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="list-block">
+                                                                        <div class="company-details">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title">Full Stack  Backend Developer</div>
+                                                                                    <div class="tag">
+                                                                                        Full-Time                                                                    
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="company-title">Accenture</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
-                                                        <div class="jp_form_location_wrapper">
-                                                            <i class="fa fa-map-marker-alt first_icon"></i>
-                                                            <select>
-                                                                <option>Select Location</option>
-                                                                <option>Select Location</option>
-                                                                <option>Select Location</option>
-                                                                <option>Select Location</option>
-                                                                <option>Select Location</option>
-                                                            </select>
-                                                            <i class="fa fa-angle-down second_icon"></i>
+                                                        <div class="jp_form_location_wrapper location-dd">
+                                                            <div class="d-toggle">
+                                                                <i class="fa fa-map-marker-alt first_icon"></i>
+                                                                <input type="text" placeholder="Location" class="c-dropdown location-field">
+                                                                <i class="fa fa-angle-down second_icon"></i>
+                                                                <div class="custom-dropdown">
+                                                                    <div class="list-wrapper">
+                                                                        <div class="list-block">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="list-block">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="list-block">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="list-block">
+                                                                            <div class="details">
+                                                                                <div class="d-flex justify-content-between">
+                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
