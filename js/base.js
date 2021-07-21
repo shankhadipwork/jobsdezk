@@ -81,6 +81,12 @@ $(el).each(function(key, val) {
       }
     })
 
+      /* File Input */
+
+  $('.profile-icon').click(function(){
+    console.log('clicked')
+    $('.dd-menu').toggle();
+  })
 
 
 
@@ -322,21 +328,21 @@ $(document).on('click', function(e){
 
 /* Range Slider */
   // Basic Slider
-  var slider = new Slider("#basic", {
-    tooltip: 'always'
-  });
-  var slider = new Slider("#basic2", {
-    tooltip: 'always'
-  });
-  var slider = new Slider("#basic3", {
-    tooltip: 'always'
-  });
-  var slider = new Slider("#basic4", {
-    tooltip: 'always'
-  });
-  var slider = new Slider("#basic5", {
-    tooltip: 'always'
-  });
+  // var slider = new Slider("#basic", {
+  //   tooltip: 'always'
+  // });
+  // var slider = new Slider("#basic2", {
+  //   tooltip: 'always'
+  // });
+  // var slider = new Slider("#basic3", {
+  //   tooltip: 'always'
+  // });
+  // var slider = new Slider("#basic4", {
+  //   tooltip: 'always'
+  // });
+  // var slider = new Slider("#basic5", {
+  //   tooltip: 'always'
+  // });
 
 
   /* File Input */
