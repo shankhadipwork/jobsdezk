@@ -46,87 +46,8 @@
                                                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                                                         <div class="d-toggle">
                                                             <i class="fa fa-search search_icon"></i>
-                                                            <input type="text" placeholder="Keyword e.g. (Job Title, Description, Tags)" class="c-dropdown search-field">
-                                                            <div class="custom-dropdown">
-                                                                <div class="list-wrapper">
-                                                                    <div class="list-block">
-                                                                        <div class="details">
-                                                                            <div class="d-flex justify-content-between">
-                                                                                <div class="title">Cloud IAS Engineering</div>
-                                                                                <div class="tag">
-                                                                                    Full-Time                                                                    
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="company-title">Accenture</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="list-block">
-                                                                        <div class="company-details">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title">Full Stack  Backend Developer</div>
-                                                                                    <div class="tag">
-                                                                                        Full-Time                                                                    
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="company-title">Accenture</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="list-block">
-                                                                        <div class="company-details">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title">Full Stack  Backend Developer</div>
-                                                                                    <div class="tag">
-                                                                                        Full-Time                                                                    
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="company-title">Accenture</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="list-block">
-                                                                        <div class="company-details">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title">Full Stack  Backend Developer</div>
-                                                                                    <div class="tag">
-                                                                                        Full-Time                                                                    
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="company-title">Accenture</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="list-block">
-                                                                        <div class="company-details">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title">Full Stack  Backend Developer</div>
-                                                                                    <div class="tag">
-                                                                                        Full-Time                                                                    
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="company-title">Accenture</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="list-block">
-                                                                        <div class="company-details">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title">Full Stack  Backend Developer</div>
-                                                                                    <div class="tag">
-                                                                                        Full-Time                                                                    
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="company-title">Accenture</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <input type="text" id="jobfind" placeholder="Key word e.g. (Job Title, Description, Tags)" class="c-dropdown search-field">
+                                                            <div class="jobSearchresult" ><div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
@@ -137,34 +58,15 @@
                                                                 <i class="fa fa-angle-down second_icon"></i>
                                                                 <div class="custom-dropdown">
                                                                     <div class="list-wrapper">
+                                                                        <?php foreach($objectvtv->findAllActiveCity() as $cityDetails) {?>
                                                                         <div class="list-block">
                                                                             <div class="details">
                                                                                 <div class="d-flex justify-content-between">
-                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
+                                                                                    <div class="title"><i class="fa fa-globe"></i> <?= $cityDetails['name']?></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="list-block">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="list-block">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="list-block">
-                                                                            <div class="details">
-                                                                                <div class="d-flex justify-content-between">
-                                                                                    <div class="title"><i class="fa fa-globe"></i> Bangalore</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        <?php } ?>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -593,6 +495,7 @@
 	<script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
 	<script src="js/base.js"></script>
     <script>
+        $(document).ready(function() {
 		$('#confirmPassword').on('keyup', function () {
 		var password = $("#passwordFirst").val();
 		var confirmPassword = $("#confirmPassword").val();
@@ -606,5 +509,25 @@
             }
         }
 		});
+
+        $('#jobfind').on('input', function () {
+		var jobTitle = this.value;       
+        if(jobTitle.length>2){
+        $.ajax({
+				  url:'ajax-job-search',
+				  data:{jobTitle:jobTitle},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){
+				    //el.html('jobSearchresult').removeClass('applyJob');	
+                    $('.jobSearchresult').html(data);
+                                       
+                   		
+				 } 
+		});
+        }
+
+		});
+    }); 
 	</script>
 </html>

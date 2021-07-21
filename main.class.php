@@ -169,6 +169,16 @@ class main
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
 	// Function End For Tail Vertical Bar
+	// Function Start For Search Job Module
+	function searchJobByJobTitle($jobTitle)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `jobs` WHERE `title` like '%".$jobTitle."%' ");
+		$sq->execute();
+		return $sq->fetchAll();
+	}
+	
+
+	// Function End For Search Job Module
 
 }	
 
