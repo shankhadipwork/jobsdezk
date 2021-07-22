@@ -4,8 +4,7 @@ $jobTitle= $_POST['jobTitle'];
 
 // $jobSearchStatus =$objectvtv->searchJobByJobTitle($jobTitle);
 ?>
-<div class="custom-dropdown">
-<div class="list-wrapper">
+
 <?php
 foreach($objectvtv->searchJobByJobTitle($jobTitle) as $jobDetails){
     if($jobDetails['job_type'] == 1){
@@ -31,9 +30,7 @@ foreach($objectvtv->searchJobByJobTitle($jobTitle) as $jobDetails){
                 <div class="company-title"><?= $comnpanyDetails['company_name']?></div>
             </div>
         </div>
- <?php } ?> 
- </div>
-</div>      
+ <?php } ?>   
         
       
                        
