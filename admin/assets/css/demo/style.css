@@ -23227,6 +23227,11 @@ footer .vertical-divider {
   position: absolute;
   right: 10px;
   top: 5px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .dropzone-wrapper {
@@ -23433,13 +23438,13 @@ table th:nth-child(3) {
 }
 .remove-preview {
   color: #080808;
-  margin-right: -19px;
+  padding: 4px 8px;
 }
 
 
 .box-body img {
-  width: 112px;
-  height: auto;
+  width: 100%;
+  height: 150px;
 }
 
 .custom-form .form-group.upload-file{
@@ -23516,3 +23521,16 @@ button#checkAllButton {
   color: #fff;
 }
 
+
+.dropzone-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.preview-zone + .dropzone-wrapper {
+  display: none;
+}
+
+.preview-zone.hidden + .dropzone-wrapper {
+  display: block;
+}
