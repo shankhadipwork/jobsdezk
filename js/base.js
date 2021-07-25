@@ -83,9 +83,24 @@ $(el).each(function(key, val) {
 
       /* File Input */
 
+  $(document).click(function(e){
+    var x = e.target.parentNode.className;
+    if(x !=='profile-icon' && x !=='bell-icon'){
+      $('.dd-menu').hide();
+    }
+    
+  })
+
   $('.profile-icon').click(function(){
     console.log('clicked')
-    $('.dd-menu').toggle();
+    $('.dd-menu').hide();
+    $(this).closest('.u-profile').find('.dd-menu').toggle();
+  })
+
+  $('.bell-icon').click(function(){
+    console.log('clicked')
+    $('.dd-menu').hide();
+    $(this).closest('.u-notification').find('.dd-menu').toggle();
   })
 
 
@@ -328,21 +343,21 @@ $(document).on('click', function(e){
 
 /* Range Slider */
   // Basic Slider
-  // var slider = new Slider("#basic", {
-  //   tooltip: 'always'
-  // });
-  // var slider = new Slider("#basic2", {
-  //   tooltip: 'always'
-  // });
-  // var slider = new Slider("#basic3", {
-  //   tooltip: 'always'
-  // });
-  // var slider = new Slider("#basic4", {
-  //   tooltip: 'always'
-  // });
-  // var slider = new Slider("#basic5", {
-  //   tooltip: 'always'
-  // });
+  var slider = new Slider("#basic", {
+    tooltip: 'always'
+  });
+  var slider = new Slider("#basic2", {
+    tooltip: 'always'
+  });
+  var slider = new Slider("#basic3", {
+    tooltip: 'always'
+  });
+  var slider = new Slider("#basic4", {
+    tooltip: 'always'
+  });
+  var slider = new Slider("#basic5", {
+    tooltip: 'always'
+  });
 
 
   /* File Input */

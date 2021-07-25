@@ -2801,6 +2801,7 @@ justify-content: center;
 
 .u-notification {
     margin: 0 16px;
+    position: relative;
 }
 
 
@@ -3230,7 +3231,7 @@ justify-content: center;
     background: #ffffff;
     padding: 8px 12px;
     left: -52px;
-    top: 53px;
+    top: 56px;
     box-shadow: 3px 3px 8px 0px rgb(0 0 0 / 15%);
 }
 
@@ -4173,3 +4174,130 @@ p {
     line-height: 1.5;
 }
 
+
+.notifications {
+    width: 400px;
+    border-radius: .358rem;
+    right: -29px;
+    left: unset;
+}
+
+.notifications .items-wrapper .item {
+    display: flex;
+    margin: 16px 0;
+}
+
+.notifications .items-wrapper .item a {
+    display: block;
+}
+.notifications .items-wrapper .item a:nth-child(2){
+    width: calc(100% - 66px);
+    padding-right: 16px;
+}
+.notifications .items-wrapper .item p {
+    margin: 0;
+}
+.notifications .font-weight-bolder {
+    background: transparent;
+    color: #333;
+    position: unset;
+    display: block;
+    font-size: 18px;
+    min-height: unset;
+    line-height: 1;
+}
+
+.notifications .media-body {
+    margin-left: 24px;
+}
+
+.notifications .close-icon, .notifications .n-icon {
+    color: #ea5455;
+    background-color: rgba(234,84,85,.12);
+    width: 30px;
+    height: 30px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    border-radius: 3px;    
+}
+
+.notifications .n-icon {
+    background-color: #ead2fd;
+}
+
+.notifications .close-icon i, .notifications .n-icon i {
+    font-size: .857rem;
+    font-weight: 600;
+    color: #ea5455 !important;
+  
+}
+.notifications .n-icon i {
+    color: #662d91 !important;
+}
+
+.notifications .h-title {
+    font-size: 22px;
+    color: #544f4f;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+
+.notifications .items-wrapper {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.notifications .dropdown-menu-footer {
+    padding: 10px 0;
+}
+.n-wrap {
+    margin: 50px auto;
+    width: 50%;
+    padding: 24px;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+    background: aliceblue;
+}
+.n-wrap .notifications {
+    width: 100%;
+}
+
+.n-wrap .notifications .items-wrapper{
+    max-height: unset;
+    overflow-y: unset;
+}
+
+.n-wrap .notifications a {
+    text-decoration: none;
+}
+
+.notifications .btn-primary,.notifications .btn-primary:hover{
+    color: #fff;
+}
+
+@media(max-width:1000px){
+    .n-wrap {
+        width: 100%;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #ccc;
+}

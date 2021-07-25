@@ -30,10 +30,149 @@ $candidateDetails = $objectJobsDezk-> speciCandidateDetails($cid);
                     <div class="user-grp">
                         <div class="u-name">Welcome <?= $candidateDetails['first_name']?> </div>
                         <div class="u-notification">
-                            <a href="">
+                            <a href="javascript:;" class="bell-icon">
                                 <i class="fa fa-bell" aria-hidden="true"></i>
                                 <span>25</span>                            
                             </a>
+                            <div class="dd-menu notifications">
+                                <div class="item h-title">
+                                    Notifications
+                                </div>
+                                <div class="items-wrapper">
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">You have 10 unread messages</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">You have 10 unread messages</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">You have 10 unread messages</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">You have Applied for a job in {Company}</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">You have Applied for a job in {Company}</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">Your Profile is shorlisted in {company}</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">Your Profile is shorlisted in {company}</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="" class="n-icon">
+                                            <i class="fa fa-bell"></i>
+                                        </a>
+                                        <a href="">
+                                            <div class="media-body">
+                                                <p class="media-heading">
+                                                    <span class="font-weight-bolder"> New message received </span>
+                                                </p>
+                                                <small class="notification-text">Your Profile is rejected in {company}</small>
+                                            </div>
+                                        </a>
+                                        <a href="" class="close-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="dropdown-menu-footer">
+                                    <a href="notifications.html" class="btn btn-primary">Read All Notifications</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="u-profile">
                             <a href="javascript:;" class="profile-icon">
