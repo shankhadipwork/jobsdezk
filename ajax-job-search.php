@@ -1,8 +1,6 @@
 <?php 
 include_once('main.class.php');
 $jobTitle= $_POST['jobTitle'];
-
-// $jobSearchStatus =$objectvtv->searchJobByJobTitle($jobTitle);
 ?>
 
 <?php
@@ -21,6 +19,7 @@ foreach($objectvtv->searchJobByJobTitle($jobTitle) as $jobDetails){
  
         <div class="list-block">
             <div class="details">
+                <a href="job-details?jid=<?= base64_encode($jobDetails["id"])?>">
                 <div class="d-flex justify-content-between">
                     <div class="title"><?= $jobDetails["title"]?></div>
                     <div class="tag">
@@ -28,6 +27,7 @@ foreach($objectvtv->searchJobByJobTitle($jobTitle) as $jobDetails){
                     </div>
                 </div>
                 <div class="company-title"><?= $comnpanyDetails['company_name']?></div>
+                </a>
             </div>
         </div>
  <?php } ?>   

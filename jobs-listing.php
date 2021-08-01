@@ -14,17 +14,35 @@
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
-    <?php include_once("header.php");    ?>
+    <?php include_once("header.php");
+    if(isset($_POST['job_search'])){
+        $jobSearchKey = $_POST['job_search_key'];
+        $searchQuery = $objectvtv->searchJobByTitle($jobSearchKey);
+    }
+    else{
+        $searchQuery = $objectvtv->findAllUrgentOpenings();
+    }
+     ?>
 		<div class="content-wrapper type-2 bg-dots">
             <div class="filter-menu">
                 <div class="container">
                     <div class="f-menu">
                         <div class="row">
                             <div class="col-md-4 mar-10">
-                                <select class="form-control select-skills" multiple="multiple" style="width: 100%;"></select>
+                                <select class="form-control select-skills" multiple="multiple" style="width: 100%;">
+                                    <option value=""></option>
+                                    <?php foreach($objectvtv->findAllActiveSkills() as $skillsDtls) {     ?>
+                                        <option value="<?= $skillsDtls['id']?>"><?= $skillsDtls['name']?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="col-md-4 mar-10">
-                                <select class="form-control select-location" multiple="multiple" style="width: 100%;"></select>
+                                <select class="form-control select-location" multiple="multiple" style="width: 100%;">
+                                    <option value=""></option>
+                                    <?php foreach($objectvtv->languageSpoken() as $languageDtls) {     ?>
+                                        <option value="<?= $languageDtls['id']?>"><?= $languageDtls['language']?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <div class="col-md-4 mar-10">
                                 <select class="custom-select">
@@ -70,7 +88,7 @@
                         <div class="col-lg-12">
 
                             <div class="cc-wrapper">
-                            <?php foreach($objectvtv->findAllUrgentOpenings() as $uOD) {    
+                            <?php foreach($searchQuery as $uOD) {    
                                     $specificCompanyDetails = $objectvtv->speciCompanyDetails($uOD['company_id']);
                                     $locations = explode(',',$uOD['locations']) ;
                                     $tmpLocationStor = '';

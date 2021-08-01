@@ -97,10 +97,16 @@ class main
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
+	function searchCompanyByName($companySearchKey)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `compnay` WHERE `company_name` like '%".$companySearchKey."%' ");
+		$sq->execute();
+		return $sq->fetchAll();
+	}
 	//Function Start For Jobs
 	public function findAllUrgentOpenings()
 	{
-		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `status`='1' ");
+		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `status`='1' LIMIT 6 ");
 		return $sql->fetchAll();
 	}
 	public function findAllJobsByCompany($companyId)
@@ -124,6 +130,12 @@ class main
 		$sql=$this->db->query("SELECT * FROM `jobs` WHERE `job_type`='3' AND `status`='1' ");
 		return $sql->fetchAll();
 	}
+	function searchJobByTitle($jobSearchKey)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `jobs` WHERE `title` like '%".$jobSearchKey."%' ");
+		$sq->execute();
+		return $sq->fetchAll();
+	}
 	//Function Start For City
 	public function findAllActiveCity()
 	{
@@ -143,6 +155,11 @@ class main
 		$sq=$this->db->prepare("SELECT * FROM `skills` WHERE `id`=$id");
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+	public function findAllActiveSkills()
+	{
+		$sql=$this->db->query("SELECT * FROM `skills` WHERE `status`='1' ");
+		return $sql->fetchAll();
 	}
 	//Function End For Skills
 	// Function Start For Sliding Banner
@@ -176,9 +193,24 @@ class main
 		$sq->execute();
 		return $sq->fetchAll();
 	}
-	
-
 	// Function End For Search Job Module
+	// Function Start For About Us
+	function aboutUs()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `jobdezk_about_us` ");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+	// Function End For About Us
+
+	// Function Start For languages
+	function languageSpoken()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `languages_spoken` ");
+		$sq->execute();
+		return $sq->fetchAll();
+	}
+	// Function End For languages
 
 }	
 

@@ -14,7 +14,16 @@
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
-    <?php include_once("header.php"); ?>
+    <?php include_once("header.php");
+    if(isset($_POST['company_search'])){
+        $companySearchKey = $_POST['company_search_key'];
+        $searchQuery = $objectvtv->searchCompanyByName($companySearchKey);
+    }
+    else{
+        $searchQuery = $objectvtv->findAllCompany();
+    }
+        
+    ?>
 		<div class="content-wrapper type-2  bg-dots">
             <div class="breadcrumbs-wrapper bg">
             </div>
@@ -22,11 +31,13 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <div class="input-group">
-                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                        <form method="post">
+                            <div class="input-group">                                
+                                <input name="company_search_key" required="required" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                                   aria-describedby="search-addon" />
-                                <button type="button" class="btn btn-outline-primary btn-search">search</button>
+                                <button name="company_search" type="submit" class="btn btn-outline-primary btn-search">search</button>                                
                               </div>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -34,7 +45,7 @@
             <div class="listing">
                 <div class="container">
                     <div class="row">
-                    <?php foreach($objectvtv->findAllCompany() as $companyDetails) {    
+                    <?php foreach($searchQuery as $companyDetails) {    
                         $companyId = $companyDetails['id'];
                     ?>
                         <div class="col-md-4">
@@ -96,4 +107,25 @@
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
 	<script src="js/base.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#jobfind').on('input', function () {
+		var jobTitle = this.value;       
+        if(jobTitle.length>2){
+        $.ajax({
+				  url:'ajax-job-search',
+				  data:{jobTitle:jobTitle},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){
+				    //el.html('jobSearchresult').removeClass('applyJob');	
+                    $('.search-module .list-wrapper').append(data);
+                                       
+                   		
+				 } 
+		});
+        }
+		});
+    }); 
+	</script>
 </html>
