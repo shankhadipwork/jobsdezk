@@ -86,7 +86,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-
                             <div class="cc-wrapper">
                             <?php foreach($searchQuery as $uOD) {    
                                     $specificCompanyDetails = $objectvtv->speciCompanyDetails($uOD['company_id']);
@@ -195,7 +194,7 @@
 							<p class="sub-text">Create an account for free now</p>
 						</div>
 						<div class="col-md-3 text-md-right text-xs-center">
-							<a href="" class="btn btn-primary">Create free account</a>
+							<a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create free account</a>
 						</div>
 					</div>
 				</div>

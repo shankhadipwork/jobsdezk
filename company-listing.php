@@ -93,7 +93,7 @@
 							<p class="sub-text">Create an account for free now</p>
 						</div>
 						<div class="col-md-3 text-md-right text-xs-center">
-							<a href="" class="btn btn-primary">Create free account</a>
+							<a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create free account</a>
 						</div>
 					</div>
 				</div>

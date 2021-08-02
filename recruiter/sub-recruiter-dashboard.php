@@ -70,6 +70,7 @@
                                     <label for="">Job ID</label>
                                     <select class="form-control select-jobs-id" multiple="multiple" style="width: 100%;"></select>
                                 </div>
+                                <a href="" class="btn btn-primary">Filter</a>
                             </form>
                         </div>
                     </div>

@@ -61,10 +61,10 @@
                                                                 <div class="custom-dropdown">
                                                                     <div class="list-wrapper">
                                                                         <?php foreach($objectvtv->findAllActiveCity() as $cityDetails) {?>
-                                                                        <div class="list-block">
+                                                                        <div class="list-block" data-val='<?= $cityDetails['name']?>'>
                                                                             <div class="details">
                                                                                 <div class="d-flex justify-content-between">
-                                                                                    <div class="title"><i class="fa fa-globe"></i> <?= $cityDetails['name']?></div>
+                                                                                    <div class="title"><i class="fa fa-globe"></i> <span class="l-name"><?= $cityDetails['name']?></span></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -354,7 +354,7 @@
 							<p class="sub-text">Create an account for free now</p>
 						</div>
 						<div class="col-md-3 text-md-right text-xs-center">
-							<a href="" class="btn btn-primary">Create free account</a>
+							<a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create free account</a>
 						</div>
 					</div>
 				</div>

@@ -90,11 +90,11 @@ class main
 		$result = $this->db->prepare($sql);			
 		if($result->execute())
 		{
-			return "<span style='color:green'>Sucessfully created</span>";	
+			return "<span class='alert-msg success'>Sucessfully created</span>";	
 		}
 	   }
 		else
-		return "<span style='color:red;'> Already excide limite</span>";		
+		return "<span class='alert-msg err'> Already excide limite</span>";		
 	}
 	function specificSubRecruiterDetails($id)
 	{
@@ -172,7 +172,7 @@ class main
 		$result = $this->db->prepare($sql);			
 		if($result->execute())
 		{
-			return "<span style='color:green'>Sucessfully created</span>";	
+			return "<span class='alert-msg success'>Sucessfully created</span>";	
 		}
 	// 	$specificSupRecDtls = $this->speciSupperRecruiterDetails($supRecruiterId);
 	// 	$companyId = $specificSupRecDtls['company_id'];

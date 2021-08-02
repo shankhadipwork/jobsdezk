@@ -205,32 +205,221 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="custom-file">
+                                        <!-- <div class="custom-file">
                                             <input type="file" name="gallery_images" class="custom-file-input" id="resumeUpload">
                                             <label class="custom-file-label" for="resumeUpload"></label>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-9">
                                 <div class="u-wrapper">
                                     <div class="upload-block">
-                                       <img src="../images/<?= $specificCompanyDtls['gallery_images']?>" height="150" width="100%"/> 
+                                       <!-- <img src="../images/<?= $specificCompanyDtls['gallery_images']?>" height="150" width="100%"/>  -->
+                                       <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="upload-block">
-                                        
+                                        <div class="custom-form">
+                                            <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="upload-block">
-                                        
+                                    <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="upload-block">
-                                        
+                                    <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="upload-block">
-                                        
+                                    <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="upload-block">
-                                        
+                                    <div class="form-group upload-file">
+                                                <div class="preview-zone hidden">
+                                                    <div class="box box-solid">
+                                                    <div class="box-header with-border">
+                                                        <div class="box-tools pull-right">
+                                                        <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-body"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropzone-wrapper">
+                                                    <div class="dropzone-desc" >
+                                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                                    <p>Choose an image file or drag it here.</p>
+                                                    </div>
+                                                    <input type="file" name="img_logo" class="dropzone">
+                                                </div>
+                                                </div>                  
+                                                <div class="row" style="display: none;">
+                                                <div class="col-md-12">
+                                                    <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-40">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <div class="f-text">
+                                        Company Logo (Upload upto 1 images here)<br/>(Jpg/png Only Allowed)
+                                    </div>                              
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!-- <div class="custom-file">
+                                            <input type="file" name="gallery_images" class="custom-file-input" id="resumeUpload">
+                                            <label class="custom-file-label" for="resumeUpload"></label>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="u-wrapper">
+                                   
+                                    <div class="upload-block">
+                                        <div class="form-group upload-file">
+                                            <div class="preview-zone hidden">
+                                                <div class="box box-solid">
+                                                <div class="box-header with-border">
+                                                    <div class="box-tools pull-right">
+                                                    <a href="javascript:;" class="btn btn-danger btn-xs remove-preview">X</a>
+                                                    </div>
+                                                </div>
+                                                <div class="box-body"></div>
+                                                </div>
+                                            </div>
+                                            <div class="dropzone-wrapper">
+                                                <div class="dropzone-desc" >
+                                                <i class="glyphicon glyphicon-download-alt"></i>
+                                                <p>Choose an image file or drag it here.</p>
+                                                </div>
+                                                <input type="file" name="img_logo" class="dropzone">
+                                            </div>
+                                            </div>                  
+                                            <div class="row" style="display: none;">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-primary pull-right">Upload</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

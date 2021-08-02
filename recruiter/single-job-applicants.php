@@ -26,7 +26,7 @@ foreach($locations as $locatinId){
 
 }
 ?>
-    <div class="content-wrapper type-2 bg-dots">
+    <div class="content-wrapper type-2 bg-dots single-job-app">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -167,12 +167,13 @@ foreach($locations as $locatinId){
                         </div>
                     </div>
                     <div class="col-lg-12">
-                        <div class="row cards-main">
-                            <?php foreach($objectjdsr->getAllAppliedJobsBySpecificJobId($decodedJobId) as $applicantsDtls) {
+                    <?php foreach($objectjdsr->getAllAppliedJobsBySpecificJobId($decodedJobId) as $applicantsDtls) {
                                 $applicantInfoDtls = $objectjdsr->getSpecificApplicantInfoDetails($applicantsDtls['candidate_id']);
                                 $applicantExpriencetls = $objectjdsr->getSpecificApplicantExprienceDetails($applicantsDtls['candidate_id']);
                                 $applicantEducationtls = $objectjdsr->getSpecificApplicantEducationDetails($applicantsDtls['candidate_id']);
                             ?>
+                        <div class="row cards-main">
+                            
                             <div class="col-lg-9">
                                 <div class="a-card-wrapper">
                                     <div class="a-card">
@@ -297,7 +298,7 @@ foreach($locations as $locatinId){
                                     </div>
                                 </div>
                             </div>
-                            <?php } ?>
+                           
 
                             <div class="col-lg-3">
                                 <div class="a-jd">
@@ -318,7 +319,8 @@ foreach($locations as $locatinId){
                                     </div>
                                 </div>
                              </div>
-                        </div>                
+                        </div>  
+                        <?php } ?>              
                     </div>  
                 </div>
             </div>
