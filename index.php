@@ -75,12 +75,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                                        <!-- <div class="jp_form_btn_wrapper">
+                                                        <div class="jp_form_btn_wrapper">
                                                             <ul>
-                                                                <li><a href="#"><i class="fa fa-search"></i> Search</a></li>
+                                                                <li>
+                                                                    <!-- <a href="#"><i class="fa fa-search"></i> Search</a> -->
+                                                                    <button name="job_search" type="submit" class=""><i class="fa fa-search"></i> Search</button>
+                                                                </li>
                                                             </ul>                                                             
-                                                        </div> -->
-                                                        <button name="job_search" type="submit" class="btn btn-outline-primary btn-search">search</button>
+                                                        </div>
+                                                        
                                                     </div>                                                   
                                                 </div>
                                                 </form>
