@@ -1,4 +1,30 @@
-<?php include_once("main.class.php") ;?>
+<?php 
+
+include_once("main.class.php");
+ob_start();
+session_start();
+if(isset($_SESSION['cid']))
+{
+	//$cid = base64_decode($_SESSION['cid']) ;
+	$cid = $_SESSION['cid'];
+}
+if(!isset($_SESSION['cid']))
+{
+	// if(isset($_GET['cid']))
+	// {
+	// 	$_SESSION['cid'] = base64_decode($_GET['cid']);
+	// 	$cid = $_SESSION['cid'];
+
+	// }
+	// else{
+	// 	$cid = null ;
+
+	// }
+	
+	$cid = null ;
+		
+}
+?>
 <header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
 				<div class="container">
@@ -27,13 +53,19 @@
 								<a class="nav-link" href="internship-listing">Internship</a>
 							</li>
 							<li class="nav-item d-none d-sm-block">
+								<?php if($cid == '') {?>
 								<a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#exampleModal">
                                     <div>Login / Signup</div>
                                     <div class="small-txt">For Candidates</div>
                                 </a>
+								<?php } else {?>
+									<a class="nav-link" href="candidate/dashboard" tabindex="-1" aria-disabled="true" >
+                                    <div>Dashboard</div>                                    
+                                </a>
+								<?php } ?>
                             </li>
                             <li class="nav-item d-none d-sm-block">
-								<a class="nav-link" href="#" tabindex="-1" aria-disabled="true" data-toggle="modal" data-target="#exampleModal">Post a job</a>
+								<a class="nav-link" href="recruiter" >Post a job</a>
                             </li>
                             <!-- <li class="nav-item dropdown my-account">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

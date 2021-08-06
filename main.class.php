@@ -48,6 +48,7 @@ class main
 	{
 		$username=$_POST['user_email'];
 		$password=$_POST['password'];
+		$JobID=$_POST['job_id'];
 		$login=$this->db->query("select * from `candidates_info` where `email`='$username' and `password`='$password' AND `status`='1' ");
 		$rowcount=$login->rowCount($login); 
 		$singlRc=$login->fetchAll();		    
@@ -56,18 +57,29 @@ class main
 		$fetch_singel=$singlRc[0];   
 		$encripted = base64_encode($fetch_singel['id']);
 		if($fetch_singel['profile_complete']=='0'){
+		$_SESSION['cid'] = $encripted;
+		if($JobID != ''){
+			$this->applyJobs($JobID, $fetch_singel['id']);
+		}
            echo "
             <script type=\"text/javascript\">           
 		   window.location='candidate/personal-info?cid=$encripted';
             </script>
         ";	
         }else{
-        	echo "
-            <script type=\"text/javascript\">           
-		   window.location='candidate/dashboard';
-            </script>
-        ";	
-
+			if($JobID != ''){
+				$this->applyJobs($JobID, $fetch_singel['id']);
+			}
+				echo "
+			    <script type=\"text/javascript\">           
+			   window.location='candidate/dashboard?cid=$encripted';
+			    </script>
+				";	
+			// echo "
+            // <script type=\"text/javascript\">           
+		   	// 	window.location='index';
+            // </script>
+        	// ";
         }	
 		
 		}
@@ -211,8 +223,70 @@ class main
 		return $sq->fetchAll();
 	}
 	// Function End For languages
+	//Function Start For Jobs	
+	function applyJobs($appyingJId, $cid)
+	{
+		$inTime =  time();		
+		$checkJobApplicationCount = $this->checkJobApplicationCount($appyingJId, $cid);
+		if($checkJobApplicationCount<1){
+			$sql="INSERT INTO `appplied_jobs`(`job_id`, `candidate_id`, `status`, `created_at`, `updated_at`)
+			VALUES ('".$appyingJId."','".$cid."','1','".$inTime."','".$inTime."')";
+			$result = $this->db->prepare($sql);			
+			if($result->execute())
+			{
+				return "Applied";
+			}
+
+		}	   
+		else
+		return "Already Applied";	
+	}
+	public function checkJobApplicationCount($appyingJId, $candidateID)
+	{
+		$sql=$this->db->query("SELECT * FROM `appplied_jobs` WHERE `candidate_id`='".$candidateID."' AND `job_id`='".$appyingJId."' ");
+		$rowcount=$sql->rowCount($sql); 
+		return $rowcount;
+	}
+	public function checkAppliedJobs($cid, $jobId)
+	{
+		$sql = $this->db->query("SELECT `job_id`, `candidate_id` FROM `appplied_jobs` WHERE
+		`candidate_id`='".$cid."' AND `job_id`='".$jobId."' ");
+		return $sql->rowCount($sql); 
+	}
+	public function checkJobSaveCount($appyingJId, $candidateID)
+	{
+		$sql=$this->db->query("SELECT * FROM `saved_jobs` WHERE `candidate_id`='".$candidateID."' AND `job_id`='".$appyingJId."' ");
+		$rowcount=$sql->rowCount($sql); 
+		return $rowcount;
+	}
+	function saveJobs($appyingJId, $cid)
+	{
+		$inTime =  time();		
+		$checkJobSaveCount = $this->checkJobSaveCount($appyingJId, $cid);
+		if($checkJobSaveCount<1){
+			$sql="INSERT INTO `saved_jobs`(`candidate_id`, `job_id`, `created_at`, `updated_at`)
+			 VALUES ('".$cid."','".$appyingJId."','".$inTime."','".$inTime."')";
+			$result = $this->db->prepare($sql);			
+			if($result->execute())
+			{
+				return "Saved";
+			}
+
+		}	   
+		else{
+			$sql="DELETE FROM `saved_jobs` WHERE `candidate_id`='".$cid."' AND `job_id`='".$appyingJId."'";
+			$result = $this->db->prepare($sql);			
+			if($result->execute())
+			{
+				return "Save";
+			}
+		}
+			
+	}
+
+	//Function End For Jobs
 
 }	
 
-$objectvtv=new main();
+$objectvtv = new main();
 ?>

@@ -13,11 +13,12 @@ $cid = $_SESSION['cid'] ;
  }
 
 $candidateDetails = $objectJobsDezk-> speciCandidateDetails($cid);
+$candidateFiles = $objectJobsDezk-> specificCandidateFiles($cid);
 ?>
 <header>
         <nav class="navbar navbar-expand-lg navbar-light c-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="../index">
                     <div class="logo-main">
                         <img src="../images/logo.jpg" alt="JobsdeZk" class="d-none d-sm-block">
                         <img src="../images/logo-xs.png" alt="JobsdeZk" class="d-block d-md-none">
@@ -25,7 +26,10 @@ $candidateDetails = $objectJobsDezk-> speciCandidateDetails($cid);
                 </a>
                 <div class="collapse navbar-collapse nav-custom" id="navbarSupportedContent">
                     <div class="home">
-                        <a href="">Home</a>
+                        <a href="../index">Home</a>
+                    </div>
+                    <div class="home">
+                        <a href="dashboard">Dashboard</a>
                     </div>
                     <div class="user-grp">
                         <div class="u-name">Welcome <?= $candidateDetails['first_name']?> </div>
@@ -176,12 +180,15 @@ $candidateDetails = $objectJobsDezk-> speciCandidateDetails($cid);
                         </div>
                         <div class="u-profile">
                             <a href="javascript:;" class="profile-icon">
-                                <img src="../images/photo.png" alt="">
+                                <img src="../images/candidate/images/<?= $candidateFiles['image']?>" alt="">
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                             <div class="dd-menu">
                                 <div class="item">
-                                    <a href="">My Account</a>
+                                    <a href="candidate_account">My Account</a>
+                                </div>
+                                <div class="item">
+                                    <a href="../index">Visit Web Site</a>
                                 </div>
                                 <div class="item">
                                     <a href="logout">Logout</a>

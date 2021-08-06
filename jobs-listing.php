@@ -145,15 +145,43 @@
                                     </div>
                                     <div class="cc-posted">
                                         <div class="a-no type-1 cl-purple">
-                                            <a href="">
-                                                Apply
+                                        <?php if($cid !== '') {
+                                            $checkAppliedJobs = $objectvtv->checkAppliedJobs($cid,$uOD['id']);
+                                            if($checkAppliedJobs>0){
+                                                $jobStatus = "Applied";
+                                                $jobClass = "";
+                                            }
+                                            elseif($checkAppliedJobs<1){
+                                                $jobStatus = "Apply Now";
+                                                $jobClass = "applyJob";
+                                            }
+                                        ?>
+                                            <a href="?jid=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="<?= $jobClass?>">
+                                            <?= $jobStatus?>
                                             </a>
+                                            <?php } else {?> 
+                                                    <a href="?jid=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="applyJob">Apply Now</a>
+                                                <?php } ?>
                                         </div>
                                         <div class="a-no type-1 cl-grey">
                                             <a href="job-details?jid=<?= base64_encode($uOD['id']) ?>">View</a>
                                         </div>
                                         <div class="a-no type-1 cl-orange">
-                                            <a href="">Save</a>
+                                        <?php if($cid !== '') {
+                                            $checkSavedJobs = $objectvtv->checkJobSaveCount($uOD['id'],$cid);
+                                            if($checkSavedJobs>0){
+                                                $jobSaveStatus = "Saved";
+                                                $jobSaveClass = "";
+                                            }
+                                            elseif($checkSavedJobs<1){
+                                                $jobSaveStatus = "Save";
+                                                $jobSaveClass = "saveJob";
+                                            }
+                                        ?>
+                                            <a href="?jid=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="<?= $jobSaveClass?>"><?= $jobSaveStatus?></a>
+                                            <?php } else {?> 
+                                                <a href="?jid=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="saveJob">Save</a>
+                                            <?php } ?>
                                         </div>
                                         <div class="posted-on">
                                             Posted on <?= DATE('d M Y',$uOD['created_at']);?>
@@ -208,4 +236,59 @@
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
 	<script src="js/base.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('.applyJob').on('click', function () {
+        var href = $(this).attr('href');
+        const split = href.split("=");
+        const jobId = atob(split[1]);        
+        var cID = '<?php echo $cid; ?>';
+        if(cID == '')    { 
+        $("#modalLoginJID").val(jobId);     
+        $('#exampleModal').modal();
+        }
+        else{
+            var line = $(this).closest("a");
+            $.ajax({
+				  url:'ajax-job-apply',
+				  data:{jobId:jobId,cID:cID},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){    
+                    line.html(data).removeClass('applyJob');                     
+                   		
+				 } 
+		});
+        }
+		});
+        $('.saveJob').on('click', function () {
+        var href = $(this).attr('href');
+        const split = href.split("=");
+        const jobId = atob(split[1]);        
+        var cID = '<?php echo $cid; ?>';
+        if(cID == '')    { 
+        $("#modalLoginJID").val(jobId);     
+        $('#exampleModal').modal();
+        }
+        else{
+            var line = $(this).closest("a");
+            $.ajax({
+				  url:'ajax-save-jobs',
+				  data:{jobId:jobId,cID:cID},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){    
+                    line.html(data).removeClass('saveJob');                     
+                   		
+				 } 
+		});
+        }
+		});
+        $('#modalClose').on('click', function () {
+            const jobId = null;
+            $("#modalLoginJID").removeAttr("value");          
+		});
+
+    }); 
+	</script>
 </html>

@@ -15,6 +15,8 @@
 	</head>
 	<body>
         <?php include_once("header.php"); 
+        $requestUrl =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+        $sanitizeUrl = htmlspecialchars( $requestUrl, ENT_QUOTES, 'UTF-8' );
             $decodedJobId = base64_decode($_GET['jid']);
             $specificJobDetails = $objectvtv->specificJobDetails($decodedJobId);
             $specificCompanyDetails = $objectvtv->speciCompanyDetails($specificJobDetails['company_id']);
@@ -231,9 +233,38 @@
                         <div class="row">
                             <div class="col-9">
                                 <div class="action-btns">
-                                    <a href="" class="btn btn-primary">Apply</a>
-                                    <a href="" class="btn btn-primary grey">Save</a>
-                                    <a href="" class="btn btn-primary orange">Share</a>
+                                <?php if($cid !== '') {
+                                    $checkAppliedJobs = $objectvtv->checkAppliedJobs($cid,$specificJobDetails['id']);
+                                    if($checkAppliedJobs>0){
+                                        $jobStatus = "Applied";
+                                        $jobClass = "";
+                                    }
+                                    elseif($checkAppliedJobs<1){
+                                        $jobStatus = "Apply Now";
+                                        $jobClass = "applyJob";
+                                    }
+                                ?>
+                                    <a href="?jid=<?= base64_encode($specificJobDetails['id']) ?>" onclick="return  false" class="btn btn-primary <?= $jobClass?>"><?= $jobStatus?></a>
+                                    <?php } else {?> 
+                                        <a href="?jid=<?= base64_encode($specificJobDetails['id']) ?>" onclick="return  false" class="btn btn-primary applyJob">Apply</a>
+                                        <?php } ?> 
+                                        <?php if($cid !== '') {
+                                            $checkSavedJobs = $objectvtv->checkJobSaveCount($specificJobDetails['id'],$cid);
+                                            if($checkSavedJobs>0){
+                                                $jobSaveStatus = "Saved";
+                                                $jobSaveClass = "";
+                                            }
+                                            elseif($checkSavedJobs<1){
+                                                $jobSaveStatus = "Save";
+                                                $jobSaveClass = "saveJob";
+                                            }
+                                        ?>
+                                    <a href="?jid=<?= base64_encode($specificJobDetails['id']) ?>" onclick="return  false" class="btn btn-primary grey <?= $jobSaveClass?>"><?= $jobSaveStatus?></a>
+                                            <?php } else {?> 
+                                                <a href="?jid=<?= base64_encode($specificJobDetails['id']) ?>" onclick="return  false" class="btn btn-primary grey saveJob">Save</a>
+                                            <?php } ?>
+                                            <p id="p1" style="display:none"><?=$sanitizeUrl?></p>       
+                                    <a href="" onclick="return  false" id="sharebutton"  class="btn btn-primary orange"><span onclick="copyToClipboard('p1');" id="copylink"> Share</span></a>
                                 </div>
                             </div>
                         </div>
@@ -283,7 +314,7 @@
                                 <div class="desc"><?= substr($jobByCompany['candidate_responsibilites'], 0, 100)?></div>
                                 <div class="action-btns d-flex justify-content-between">
                                     <div class="action-btn">
-                                        <a href="" class="btn-apply">Apply Now</a>
+                                        <a href="" class="btn-apply applyJob">Apply Now</a>
                                     </div>
                                     <div class="posted-on">
                                         Posted on <?= DATE('d M Y',$jobByCompany['created_at']);?>
@@ -318,4 +349,85 @@
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
 	<script src="js/base.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        $('.applyJob').on('click', function () {
+        var href = $(this).attr('href');
+        const split = href.split("=");
+        const jobId = atob(split[1]);        
+        var cID = '<?php echo $cid; ?>';
+        if(cID == '')    { 
+        $("#modalLoginJID").val(jobId);     
+        $('#exampleModal').modal();
+        }
+        else{
+            var line = $(this).closest("a");
+            $.ajax({
+				  url:'ajax-job-apply',
+				  data:{jobId:jobId,cID:cID},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){    
+                    line.html(data).removeClass('applyJob');                     
+                   		
+				 } 
+		});
+        }
+		});
+        $('.saveJob').on('click', function () {
+        var href = $(this).attr('href');
+        const split = href.split("=");
+        const jobId = atob(split[1]);        
+        var cID = '<?php echo $cid; ?>';
+        if(cID == '')    { 
+        $("#modalLoginJID").val(jobId);     
+        $('#exampleModal').modal();
+        }
+        else{
+            var line = $(this).closest("a");
+            $.ajax({
+				  url:'ajax-save-jobs',
+				  data:{jobId:jobId,cID:cID},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){    
+                    line.html(data).removeClass('saveJob');                     
+                   		
+				 } 
+		});
+        }
+		});
+        $('#modalClose').on('click', function () {
+            const jobId = null;
+            $("#modalLoginJID").removeAttr("value");          
+		});
+
+    }); 
+    // document.getElementById("demo").onclick = function() {copyToClipboard()};
+    function copyToClipboard(elementId) {
+
+    // Create a "hidden" input
+    var aux = document.createElement("input");
+
+    // Assign it the value of the specified element
+    aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+    // Append it to the body
+    document.body.appendChild(aux);
+
+    // Highlight its content
+    aux.select();
+
+    // Copy the highlighted text
+    document.execCommand("copy");
+
+    // Remove it from the body
+    document.body.removeChild(aux);
+    document.getElementById("copylink").innerHTML = "Link copied!";
+    document.getElementById("copylink").style.color = "#fff"; 
+    document.getElementById("sharebutton").style.backgroundColor = "#23a746"; 
+
+    }
+	</script>
 </html>

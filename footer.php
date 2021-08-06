@@ -21,16 +21,10 @@ $aboutUs = $objectvtv->aboutUs();
 							</div>
 							<div class="col-md-2">
 								<div class="link-header">
-									Companies
+									Address
 								</div>
 								<div class="link-list">
-									<ul>
-										<li><a href="company-details.html">Capgemini</a></li>
-										<li><a href="">Company</a></li>
-										<li><a href="">Company</a></li>
-										<li><a href="">Company</a></li>
-										<li><a href="">Company</a></li>
-										<li><a href="">Company</a></li>
+									<ul><?= $aboutUs['address'];?>
 									</ul>
 								</div>
 							</div>
@@ -91,7 +85,7 @@ $aboutUs = $objectvtv->aboutUs();
 				<div class="modal fade auth-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" id="modalClose" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="container">
@@ -132,6 +126,7 @@ $aboutUs = $objectvtv->aboutUs();
                                                                 <a href="" tabindex="5" class="forgot-password">Forgot Password?</a>
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" name="job_id" id="modalLoginJID" />
                                                     </div>
                                                    
                                                     <div class="form-group">

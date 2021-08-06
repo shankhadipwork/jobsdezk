@@ -91,7 +91,7 @@ class main
 		$last_updated =  time();
 
 		$sql1=$this->db->query("SELECT * FROM `candidates_education` WHERE `candidate_id`='".$id."'");
-		$rowcount=$sql1->rowCount($sql); 
+		$rowcount=$sql1->rowCount($sql1); 
 		if($rowcount>0){
 
 			$sql="UPDATE `candidates_education` SET `higest_qualification`='".$higest_qualification."',`course`='".$course."',
@@ -140,12 +140,12 @@ class main
 		$designation = $_POST['designation'];
 		$updated_at =  time();
 		$sql1=$this->db->query("SELECT * FROM `exprience` WHERE `candidate_id`='".$id."'");
-		$rowcount=$sql1->rowCount($sql); 
+		$rowcount=$sql1->rowCount($sql1); 
 		if($rowcount>0){
 
 			$sql="UPDATE `exprience` SET `category`='".$category."',`total_year`='".$total_year."',
 		`total_month`='".$total_month."',`latest_company`='".$latest_company."',`ctc`='".$ctc."',
-		`notice_period`='".$notice_period."',`tenure`='".$tenure."',`end_date`='".$end_date."',`designation`='".$designation."',`updated_at`='".$last_updated."' WHERE `candidate_id`='".$id."' ";
+		`notice_period`='".$notice_period."',`tenure`='".$tenure."',`end_date`='".$end_date."',`designation`='".$designation."',`updated_at`='".$updated_at."' WHERE `candidate_id`='".$id."' ";
 
 
 		}else
@@ -177,7 +177,7 @@ class main
 		$updated_at =  time();
 
 		$sql1=$this->db->query("SELECT * FROM `candidates_social_links` WHERE `candidate_id`='".$id."'");
-		$rowcount=$sql1->rowCount($sql); 
+		$rowcount=$sql1->rowCount($sql1); 
 		if($rowcount>0){
 			$sql="UPDATE `candidates_social_links` SET `social_media`='".$social_media."',`social_link`='".$social_link."',
 		`update_at`='".$updated_at."' WHERE `candidate_id`='".$id."' ";
@@ -216,7 +216,7 @@ class main
 		$updated_at =  time();
 
 		$sql1=$this->db->query("SELECT * FROM `candidates_files` WHERE `candidate_id`='".$id."'");
-		$rowcount=$sql1->rowCount($sql); 
+		$rowcount=$sql1->rowCount($sql1); 
 		if($rowcount>0){
 			$sql="UPDATE `candidates_files` SET `update_at`='".$updated_at."' WHERE `candidate_id`='".$id."' ";
 		}else{
@@ -261,6 +261,12 @@ class main
 	   
 		else
 		return "<span style='color:red;font-size: 16px; font-weight=800;font-style: oblique;font-weight: 600;'> Already Inserted In Data Base</span>";	
+	}
+	function specificCandidateFiles($id)
+	{
+		$sq=$this->db->prepare("SELECT * FROM `candidates_files` WHERE `candidate_id`=$id");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
 
 	//Function End For Files
@@ -375,7 +381,6 @@ class main
 
 		$sq=$this->db->prepare("SELECT * FROM `candidates_skills` WHERE `candiate_id`=$candidateId");
 		$sq->execute();
-
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
 	function specificSkillDetails($id)
@@ -445,6 +450,14 @@ class main
 		$sq->execute();
 		return $sq->fetch(PDO::FETCH_ASSOC);
 	}
+	// Function Start For About Us
+	function aboutUs()
+	{
+		$sq=$this->db->prepare("SELECT * FROM `jobdezk_about_us` ");
+		$sq->execute();
+		return $sq->fetch(PDO::FETCH_ASSOC);
+	}
+	// Function End For About Us
 	
 
 }	

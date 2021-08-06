@@ -1,10 +1,10 @@
 <?php
 session_start();
 require_once('main.class.php');
-$objectJobsDezk->logout();
+$objectvtv->logout();
 echo "
             <script type=\"text/javascript\">           
-		   window.location='../index';
+		   window.location='index';
             </script>
         "; 
 

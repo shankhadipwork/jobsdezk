@@ -1,3 +1,6 @@
+<?php
+$aboutUs = $objectJobsDezk->aboutUs();
+?>
 <footer>
         <div class="main-footer">
             <div class="container">
@@ -7,7 +10,7 @@
                             <a class="logo-main">
                             <img src="../images/logo.jpg" alt="JobsdeZk">
                             </a>
-                            <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus lectus, scelerisque in interdum placerat, vulputate et nisl.</div>
+                            <div class="desc"><?= $aboutUs['about'];?></div>
                             <div class="social">
                                 <ul class="icon-list">
                                     <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
@@ -18,16 +21,11 @@
                         </div>
                         <div class="col-md-2">
                             <div class="link-header">
-                                Companies
+                                Address
                             </div>
                             <div class="link-list">
                                 <ul>
-                                    <li><a href="company-details.html">Capgemini</a></li>
-                                    <li><a href="">Company</a></li>
-                                    <li><a href="">Company</a></li>
-                                    <li><a href="">Company</a></li>
-                                    <li><a href="">Company</a></li>
-                                    <li><a href="">Company</a></li>
+                                <?= $aboutUs['address'];?>
                                 </ul>
                             </div>
                         </div>

@@ -195,7 +195,21 @@
                                                         <div class="desc"><?= substr($uOD['candidate_responsibilites'], 0, 100)?></div>
                                                         <div class="action-btns d-flex justify-content-between">
                                                             <div class="action-btn">
-                                                                <a href="" class="btn-apply">Apply Now</a>
+                                                                <?php if($cid !== '') {
+                                                                    $checkAppliedJobs = $objectvtv->checkAppliedJobs($cid,$uOD['id']);
+                                                                    if($checkAppliedJobs>0){
+                                                                        $jobStatus = "Applied";
+                                                                        $jobClass = "";
+                                                                    }
+                                                                    elseif($checkAppliedJobs<1){
+                                                                        $jobStatus = "Apply Now";
+                                                                        $jobClass = "applyJob";
+                                                                    }
+                                                                ?>
+                                                                    <a href="?a=<?= base64_encode($uOD['id']) ?>" onclick="return  false"  class="btn-apply <?= $jobClass?>"><?= $jobStatus?></a>
+                                                                <?php } else {?>   
+                                                                    <a href="?a=<?= base64_encode($uOD['id']) ?>" onclick="return  false"  class="btn-apply applyJob">Apply Now</a>
+                                                                <?php } ?>
                                                             </div>
                                                             <div class="sub-title">Updated <?= round($hour)  ?> hours ago</div>
                                                         </div>
@@ -295,7 +309,21 @@
                                         <div class="block-item">
                                             <div class="action-item">
                                                 <a href="job-details?jid=<?= base64_encode($uOD['id']) ?>" class="btn-apply">View Job</a>
-                                                <a href="" class="btn-apply">Apply Now</a>
+                                                <?php if($cid !== '') {
+                                                    $checkAppliedJobs = $objectvtv->checkAppliedJobs($cid,$uOD['id']);
+                                                    if($checkAppliedJobs>0){
+                                                        $jobStatus = "Applied";
+                                                        $jobClass = "";
+                                                    }
+                                                    elseif($checkAppliedJobs<1){
+                                                        $jobStatus = "Apply Now";
+                                                        $jobClass = "applyJob";
+                                                    }
+                                                ?>
+                                                <a href="?a=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="btn-apply <?= $jobClass?>"><?= $jobStatus?></a>
+                                                <?php } else {?> 
+                                                    <a href="?a=<?= base64_encode($uOD['id']) ?>" onclick="return  false" class="btn-apply applyJob">Apply Now</a>
+                                                <?php } ?>   
                                             </div>
                                             <div class="posted-on">
                                                 Posted on <?= DATE('d M Y',$uOD['created_at']);?>
@@ -398,14 +426,41 @@
 				  cache:false,
 				  success:function(data){
 				    //el.html('jobSearchresult').removeClass('applyJob');	
-                    $('.search-module .list-wrapper').append(data);
-                                       
+                    $('.search-module .list-wrapper').append(data);                                       
                    		
 				 } 
 		});
         }
-
 		});
+
+        $('.applyJob').on('click', function () {
+        var href = $(this).attr('href');
+        const split = href.split("=");
+        const jobId = atob(split[1]);        
+        var cID = '<?php echo $cid; ?>';
+        if(cID == '')    { 
+        $("#modalLoginJID").val(jobId);     
+        $('#exampleModal').modal();
+        }
+        else{
+            var line = $(this).closest("a");
+            $.ajax({
+				  url:'ajax-job-apply',
+				  data:{jobId:jobId,cID:cID},
+				  type : 'POST' ,
+				  cache:false,
+				  success:function(data){    
+                    line.html(data).removeClass('applyJob');                     
+                   		
+				 } 
+		});
+        }
+		});
+        $('#modalClose').on('click', function () {
+            const jobId = null;
+            $("#modalLoginJID").removeAttr("value");          
+		});
+
     }); 
 	</script>
 </html>

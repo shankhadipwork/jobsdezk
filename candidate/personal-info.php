@@ -27,8 +27,6 @@ include_once("main.class.php");
      ?>
     <div class="content-wrapper type-2 bg-dots">
         <div class="container">
-           
-            <?php include_once("candidate_scoreboard.php");?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="steps-form">
