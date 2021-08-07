@@ -178,9 +178,9 @@ if(isset($_POST['candidate_expriences'])){
                                         </div>
                                         
                                     </div>
-                                    <div class="">
+                                    <div class="" id="addEmp">
                                         <div class="col-lg-12 text-right">
-                                            <a href="">+ Add Employer</a>
+                                            <a href="" data-toggle="modal" data-target="#addExpModal">+ Add Employer</a>
                                         </div>
                                     </div>
                                     <div class="row custom-btns">
@@ -207,6 +207,95 @@ if(isset($_POST['candidate_expriences'])){
         </div>
     </div>
     <?php include_once("footer.php"); ?>
+    <div class="modal fade" id="addExpModal" tabindex="-1" role="dialog" aria-labelledby="addExpModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                <form method="post">
+                        <div class="steps-form">
+                            <div class="row">
+                                <div class="col-lg-12 mx-auto">
+                                    <div class="edu-block">
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="">Current/ Latest Company*</label>
+                                                    <input type="text" value="<?php echo $specificEmployee['latest_company']; ?>" name="latest_company"  class="form-control">
+                                                    <div class="radio">
+                                                        <input id="radio-5"  name="radio5" type="radio">
+                                                        <label for="radio-5" class="radio-label">I am currently working here</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="">CTC</label>
+                                                    <select name="ctc" class="form-control">
+                                                        <option value="">Select CTC</option>
+                                                        <option  <?php  if($specificEmployee['ctc'] == '2.5') { echo ' selected="selected"';} ?> value="2.5">2.5LP</option>
+                                                        <option  <?php  if($specificEmployee['ctc'] == '3.5') { echo ' selected="selected"';} ?> value="3.5">3.5LP</option>
+                                                        <option <?php  if($specificEmployee['ctc'] == '4') { echo ' selected="selected"';} ?> value="4">4LP</option>
+                                                        <option <?php  if($specificEmployee['ctc'] == '5') { echo ' selected="selected"';} ?> value="5">5LP</option>
+                                                        <option <?php  if($specificEmployee['ctc'] == '6') { echo ' selected="selected"';} ?> value="6">6LP</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="">Notice Period</label>
+                                                    <select name="notice_period" class="form-control">
+                                                        <option value="">Select Notice Period</option>
+                                                        <option <?php  if($specificEmployee['notice_period'] == '60') { echo ' selected="selected"';} ?> value="60">2 Months</option>
+                                                        <option <?php  if($specificEmployee['notice_period'] == '30') { echo ' selected="selected"';} ?> value="30">1 Month</option>
+                                                        <option <?php  if($specificEmployee['notice_period'] == '15') { echo ' selected="selected"';} ?> value="15">15 Days</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="">Tenure</label>
+                                                    <input type="date" value="<?php echo $specificEmployee['tenure']; ?>" class="form-control" name="tenure">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="">End Date</label>
+                                                    <input type="date" value="<?php echo $specificEmployee['end_date']; ?>" name="end_date" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="">Designation</label>
+                                                    <input type="text" value="<?php echo $specificEmployee['designation']; ?>" class="form-control" name="designation">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row custom-btns">
+                                        <div class="col-lg-12">
+                                            <div class="text-center">
+                                                <!-- <a href="" class="btn-custom btn-save">Save</a> -->
+                                                <button name="candidate_expriences"  class="btn-custom btn-save" >Save</button>
+                                            </div>
+                                        </div>                                 
+                                    </div>
+                                </div>                              
+                            </div>
+                        </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="../vendor/jQuery/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>

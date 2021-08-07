@@ -56,13 +56,6 @@
                                 <option value="<?= $companyData['id']?>"><?= $companyData['company_name']?></option>
                                 <?php } ?>
                                 </select>
-                                <div class="mdc-notched-outline">
-                                    <div class="mdc-notched-outline__leading"></div>
-                                    <div class="mdc-notched-outline__notch">
-                                    <label for="text-field-hero-input" class="mdc-floating-label">Company Title*</label>
-                                    </div>
-                                    <div class="mdc-notched-outline__trailing"></div>
-                                </div>
                                 </div>
                             </div>
                             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">

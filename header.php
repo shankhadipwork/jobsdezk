@@ -67,7 +67,7 @@ if(!isset($_SESSION['cid']))
                             <li class="nav-item d-none d-sm-block">
 								<a class="nav-link" href="recruiter" >Post a job</a>
                             </li>
-                            <!-- <li class="nav-item dropdown my-account">
+                            <li class="nav-item dropdown my-account">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="demo-img">
                                         <img src="images/" alt="">
@@ -78,7 +78,7 @@ if(!isset($_SESSION['cid']))
                                   <a class="dropdown-item" href="profile.html">My Account</a>
                                   <a class="dropdown-item" href="#">Logout</a>
                                 </div>
-                              </li> -->
+                              </li>
 						</ul>
 					</div>
 				</div>

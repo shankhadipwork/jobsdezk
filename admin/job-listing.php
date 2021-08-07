@@ -62,6 +62,7 @@
                                 <th>Exprience</th>
                                 <th>Salary</th>
                                 <th>Location</th>
+                                <th>Urgent</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -95,6 +96,9 @@
                                 <td><?= $jobDetails['experience_needed']?></td>
                                 <td><?= $jobDetails['salary']?></td>
                                 <td><?= $tmpLocationStor?></td>
+                                <td>
+                                  <input type="checkbox" id="isUrgentOpening" name="isUrgentOpening" value="1">
+                                </td>
                                 <td>
                                   <div class="menu-button-container">
                                     <button class="mdc-menu-button">

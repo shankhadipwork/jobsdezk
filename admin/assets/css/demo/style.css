@@ -23534,3 +23534,15 @@ button#checkAllButton {
 .preview-zone.hidden + .dropzone-wrapper {
   display: block;
 }
+
+
+table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before {
+  margin-top: 0 !important;
+}
+.form-control {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+}
